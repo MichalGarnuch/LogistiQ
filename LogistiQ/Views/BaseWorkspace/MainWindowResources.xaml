@@ -1,0 +1,237 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vm_products="clr-namespace:LogistiQ.ViewModels.Products"
+                    xmlns:vw_products="clr-namespace:LogistiQ.Views.Products"
+                    xmlns:vm_invoices="clr-namespace:LogistiQ.ViewModels.Invoices"
+                    xmlns:vw_invoices="clr-namespace:LogistiQ.Views.Invoices"
+                    xmlns:vm_inventory="clr-namespace:LogistiQ.ViewModels.Inventory"
+                    xmlns:vw_inventory="clr-namespace:LogistiQ.Views.Inventory"
+                    xmlns:vm_categories="clr-namespace:LogistiQ.ViewModels.Categories"
+                    xmlns:vw_categories="clr-namespace:LogistiQ.Views.Categories"
+                    xmlns:vm_customers="clr-namespace:LogistiQ.ViewModels.Customers"
+                    xmlns:vw_customers="clr-namespace:LogistiQ.Views.Customers"
+                    xmlns:vm_deliveries="clr-namespace:LogistiQ.ViewModels.Deliveries"
+                    xmlns:vw_deliveries="clr-namespace:LogistiQ.Views.Deliveries"
+                    xmlns:vm_discounts="clr-namespace:LogistiQ.ViewModels.Discounts"
+                    xmlns:vw_discounts="clr-namespace:LogistiQ.Views.Discounts"
+                    xmlns:vm_documents="clr-namespace:LogistiQ.ViewModels.Documents"
+                    xmlns:vw_documents="clr-namespace:LogistiQ.Views.Documents"
+                    xmlns:vm_employees="clr-namespace:LogistiQ.ViewModels.Employees"
+                    xmlns:vw_employees="clr-namespace:LogistiQ.Views.Employees"
+                    xmlns:vm_orders="clr-namespace:LogistiQ.ViewModels.Orders"
+                    xmlns:vw_orders="clr-namespace:LogistiQ.Views.Orders"
+                    xmlns:vm_payments="clr-namespace:LogistiQ.ViewModels.Payments"
+                    xmlns:vw_payments="clr-namespace:LogistiQ.Views.Payments"
+                    xmlns:vm_returns="clr-namespace:LogistiQ.ViewModels.Returns"
+                    xmlns:vw_returns="clr-namespace:LogistiQ.Views.Returns"
+                    xmlns:vm_shifts="clr-namespace:LogistiQ.ViewModels.Shifts"
+                    xmlns:vw_shifts="clr-namespace:LogistiQ.Views.Shifts"
+                    xmlns:vm_stockLevels="clr-namespace:LogistiQ.ViewModels.StockLevels"
+                    xmlns:vw_stockLevels="clr-namespace:LogistiQ.Views.StockLevels"
+                    xmlns:vm_suppliers="clr-namespace:LogistiQ.ViewModels.Suppliers"
+                    xmlns:vw_suppliers="clr-namespace:LogistiQ.Views.Suppliers"
+                    xmlns:vm_warehouses="clr-namespace:LogistiQ.ViewModels.Warehouses"
+                    xmlns:vw_warehouses="clr-namespace:LogistiQ.Views.Warehouses">
+
+    <DataTemplate DataType="{x:Type vm_products:AllProductsViewModel}">
+        <vw_products:AllProductsView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm_products:NewProductViewModel}">
+        <vw_products:NewProductView/>
+
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm_invoices:AllInvoicesViewModel}">
+        <vw_invoices:AllInvoicesView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm_invoices:NewInvoiceViewModel}">
+        <vw_invoices:NewInvoiceView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm_inventory:InventoryViewModel}">
+        <vw_inventory:InventoryView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm_categories:AllCategoriesViewModel}">
+        <vw_categories:AllCategoriesView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm_categories:NewCategoryViewModel}">
+        <vw_categories:NewCategoryView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm_customers:AllCustomersViewModel}">
+        <vw_customers:AllCustomersView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm_customers:NewCustomersViewModel}">
+        <vw_customers:NewCustomerView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm_deliveries:AllDeliveriesViewModel}">
+        <vw_deliveries:AllDeliveriesView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm_deliveries:NewDeliveryViewModel}">
+        <vw_deliveries:NewDeliveryView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm_deliveries:DeliveryDetailsViewModel}">
+        <vw_deliveries:DeliveryDetailsView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm_discounts:AllDiscountsViewModel}">
+        <vw_discounts:AllDiscountsView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm_discounts:NewDiscountViewModel}">
+        <vw_discounts:NewDiscountView/>
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm_documents:AllDocumentsViewModel}">
+        <vw_documents:AllDocumentsView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm_documents:NewDocumentViewModel}">
+        <vw_documents:NewDocumentView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm_employees:AllEmployeesViewModel}">
+        <vw_employees:AllEmployeesView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm_employees:NewEmployeeViewModel}">
+        <vw_employees:NewEmployeeView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm_orders:AllOrdersViewModel}">
+        <vw_orders:AllOrdersView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm_orders:NewOrderViewModel}">
+        <vw_orders:NewOrderView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm_orders:OrderDetailsViewModel}">
+        <vw_orders:OrderDetailsView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm_payments:AllPaymentsViewModel}">
+        <vw_payments:AllPaymentsView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm_returns:AllReturnsViewModel}">
+        <vw_returns:AllReturnsView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm_returns:NewReturnViewModel}">
+        <vw_returns:NewReturnView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm_shifts:AllShiftsViewModel}">
+        <vw_shifts:AllShiftsView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm_stockLevels:StockLevelsViewModel}">
+        <vw_stockLevels:StockLevelsView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm_suppliers:AllSuppliersViewModel}">
+        <vw_suppliers:AllSuppliersView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm_suppliers:NewSupplierViewModel}">
+        <vw_suppliers:NewSupplierView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm_warehouses:AllWarehousesViewModel}">
+        <vw_warehouses:AllWarehousesView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm_warehouses:NewWarehouseViewModel}">
+        <vw_warehouses:NewWarehouseView/>
+    </DataTemplate>
+
+
+
+    <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
+        <Setter Property="HeaderTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Border 
+                        Background="Blue" 
+                        BorderBrush="LightGray" 
+                        BorderThickness="1" 
+                        CornerRadius="5" 
+                        Margin="4" 
+                        Padding="4" 
+                        SnapsToDevicePixels="True">
+                        <TextBlock 
+                            FontSize="14"
+                            FontWeight="Bold"
+                            Foreground="White" 
+                            HorizontalAlignment="Center"  
+                            Text="{TemplateBinding Content}" />
+                    </Border>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type HeaderedContentControl}">
+                    <DockPanel>
+                        <ContentPresenter 
+                            DockPanel.Dock="Top"
+                            ContentSource="Header" 
+                            ContentTemplate="{TemplateBinding HeaderTemplate}" />
+                        <ContentPresenter 
+                            ContentSource="Content" 
+                            ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MainBorderStyle" TargetType="{x:Type Border}">
+        <Setter Property="Background" Value="WhiteSmoke" />
+        <Setter Property="BorderBrush" Value="LightGray" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="5" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+    </Style>
+
+    <DataTemplate x:Key="CommandsTemplate">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="6,2">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Margin="2,6">
+                        <Hyperlink Command="{Binding Path=Command}">
+                            <TextBlock Text="{Binding Path=DisplayName}" />
+                        </Hyperlink>
+                    </TextBlock>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ClosableTabItemTemplate">
+        <DockPanel Width="120">
+            <Button 
+                Command="{Binding Path=CloseCommand}"
+                Content="X"
+                Cursor="Hand"
+                DockPanel.Dock="Right"
+                Focusable="False"
+                FontFamily="Courier" 
+                FontSize="9"
+                FontWeight="Bold"  
+                Margin="0,1,0,0"
+                Padding="0"
+                VerticalContentAlignment="Bottom"
+                Width="16" Height="16" />
+            <ContentPresenter 
+                Content="{Binding Path=DisplayName}" 
+                VerticalAlignment="Center" />
+        </DockPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="WorkspacesTemplate">
+        <TabControl 
+            IsSynchronizedWithCurrentItem="True" 
+            ItemsSource="{Binding}" 
+            ItemTemplate="{StaticResource ClosableTabItemTemplate}"
+            Margin="4" />
+    </DataTemplate>
+</ResourceDictionary>

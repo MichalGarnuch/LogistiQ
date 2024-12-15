@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{435572FA-D2A2-48CA-B905-4A7899337063}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LogistiQ</RootNamespace>
+    <AssemblyName>LogistiQ</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helper\BaseCommand.cs" />
+    <Compile Include="Models\EntitiesForView\DeliveryDetailForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\DeliveryForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\DiscountForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\DocumentForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\EmployeeForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\InventoryForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\InvoiceForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\OrderDetailForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\OrderForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\PaymentForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\ProductForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\ReturnForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\ShiftForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\StockLevelForAllView.cs" />
+    <Compile Include="Models\Entities\Categories.cs">
+      <DependentUpon>LogistiQ_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\Customers.cs">
+      <DependentUpon>LogistiQ_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\Deliveries.cs">
+      <DependentUpon>LogistiQ_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\DeliveryDetails.cs">
+      <DependentUpon>LogistiQ_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\Discounts.cs">
+      <DependentUpon>LogistiQ_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\Documents.cs">
+      <DependentUpon>LogistiQ_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\Employees.cs">
+      <DependentUpon>LogistiQ_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\Inventory.cs">
+      <DependentUpon>LogistiQ_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\Invoices.cs">
+      <DependentUpon>LogistiQ_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\LogistiQ_DB_Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogistiQ_DB_Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\LogistiQ_DB_Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogistiQ_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\LogistiQ_DB_Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogistiQ_DB_Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\OrderDetails.cs">
+      <DependentUpon>LogistiQ_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\Orders.cs">
+      <DependentUpon>LogistiQ_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\Payments.cs">
+      <DependentUpon>LogistiQ_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\Products.cs">
+      <DependentUpon>LogistiQ_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\Returns.cs">
+      <DependentUpon>LogistiQ_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\Shifts.cs">
+      <DependentUpon>LogistiQ_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>LogistiQ_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\sp_helpdiagrams_Result.cs">
+      <DependentUpon>LogistiQ_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\StockLevels.cs">
+      <DependentUpon>LogistiQ_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\Suppliers.cs">
+      <DependentUpon>LogistiQ_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\sysdiagrams.cs">
+      <DependentUpon>LogistiQ_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\Warehouses.cs">
+      <DependentUpon>LogistiQ_DB_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\BaseWorkspace\AllViewModel.cs" />
+    <Compile Include="ViewModels\BaseWorkspace\BaseViewModel.cs" />
+    <Compile Include="ViewModels\BaseWorkspace\CommandViewModel.cs" />
+    <Compile Include="ViewModels\BaseWorkspace\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\Categories\AllCategoriesViewModel.cs" />
+    <Compile Include="ViewModels\Categories\NewCategoryViewModel.cs" />
+    <Compile Include="ViewModels\Customers\AllCustomersViewModel.cs" />
+    <Compile Include="ViewModels\Customers\NewCustomerViewModel.cs" />
+    <Compile Include="ViewModels\Deliveries\AllDeliveriesViewModel.cs" />
+    <Compile Include="ViewModels\Deliveries\DeliveryDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Deliveries\NewDeliveryViewModel.cs" />
+    <Compile Include="ViewModels\Discounts\AllDiscountsViewModel.cs" />
+    <Compile Include="ViewModels\Discounts\NewDiscountViewModel.cs" />
+    <Compile Include="ViewModels\Documents\AllDocumentsViewModel.cs" />
+    <Compile Include="ViewModels\Documents\NewDocumentViewModel.cs" />
+    <Compile Include="ViewModels\Employees\AllEmployeesViewModel.cs" />
+    <Compile Include="ViewModels\Employees\NewEmployeeViewModel.cs" />
+    <Compile Include="ViewModels\Inventory\InventoryViewModel.cs" />
+    <Compile Include="ViewModels\Invoices\AllInvoicesViewModel.cs" />
+    <Compile Include="ViewModels\Invoices\NewInvoiceViewModel.cs" />
+    <Compile Include="ViewModels\Orders\AllOrdersViewModel.cs" />
+    <Compile Include="ViewModels\Orders\NewOrderViewModel.cs" />
+    <Compile Include="ViewModels\Orders\OrderDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Payments\AllPaymentsViewModel.cs" />
+    <Compile Include="ViewModels\Products\NewProductViewModel.cs" />
+    <Compile Include="ViewModels\BaseWorkspace\WorkspaceViewModel.cs" />
+    <Compile Include="ViewModels\Products\AllProductsViewModel.cs" />
+    <Compile Include="ViewModels\Returns\AllReturnsViewModel.cs" />
+    <Compile Include="ViewModels\Returns\NewReturnViewModel.cs" />
+    <Compile Include="ViewModels\Shifts\AllShiftsViewModel.cs" />
+    <Compile Include="ViewModels\StockLevels\StockLevelsViewModel.cs" />
+    <Compile Include="ViewModels\Suppliers\AllSuppliersViewModel.cs" />
+    <Compile Include="ViewModels\Suppliers\NewSupplierViewModel.cs" />
+    <Compile Include="ViewModels\Warehouses\AllWarehousesViewModel.cs" />
+    <Compile Include="ViewModels\Warehouses\NewWarehouseViewModel.cs" />
+    <Compile Include="Views\BaseWorkspace\AllViewBase.cs" />
+    <Compile Include="Views\BaseWorkspace\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BaseWorkspace\SingleRecordViewBase.cs" />
+    <Compile Include="Views\BaseWorkspace\SingleRecordViewModel.cs" />
+    <Compile Include="Views\Categories\AllCategoriesView.xaml.cs">
+      <DependentUpon>AllCategoriesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Categories\NewCategoryView.xaml.cs">
+      <DependentUpon>NewCategoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customers\AllCustomersView.xaml.cs">
+      <DependentUpon>AllCustomersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customers\NewCustomerView.xaml.cs">
+      <DependentUpon>NewCustomerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Deliveries\AllDeliveriesView.xaml.cs">
+      <DependentUpon>AllDeliveriesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Deliveries\DeliveryDetailsView.xaml.cs">
+      <DependentUpon>DeliveryDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Deliveries\NewDeliveryView.xaml.cs">
+      <DependentUpon>NewDeliveryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Discounts\AllDiscountsView.xaml.cs">
+      <DependentUpon>AllDiscountsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Discounts\NewDiscountView.xaml.cs">
+      <DependentUpon>NewDiscountView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Documents\AllDocumentsView.xaml.cs">
+      <DependentUpon>AllDocumentsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Documents\NewDocumentView.xaml.cs">
+      <DependentUpon>NewDocumentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employees\AllEmployeesView.xaml.cs">
+      <DependentUpon>AllEmployeesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employees\NewEmployeeView.xaml.cs">
+      <DependentUpon>NewEmployeeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inventory\InventoryView.xaml.cs">
+      <DependentUpon>InventoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Invoices\AllInvoicesView.xaml.cs">
+      <DependentUpon>AllInvoicesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Invoices\NewInvoiceView.xaml.cs">
+      <DependentUpon>NewInvoiceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Orders\AllOrdersView.xaml.cs">
+      <DependentUpon>AllOrdersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Orders\NewOrderView.xaml.cs">
+      <DependentUpon>NewOrderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Orders\OrderDetailsView.xaml.cs">
+      <DependentUpon>OrderDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Payments\AllPaymentsView.xaml.cs">
+      <DependentUpon>AllPaymentsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Products\NewProductView.xaml.cs">
+      <DependentUpon>NewProductView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Products\AllProductsView.xaml.cs">
+      <DependentUpon>AllProductsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Returns\AllReturnsView.xaml.cs">
+      <DependentUpon>AllReturnsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Returns\NewReturnView.xaml.cs">
+      <DependentUpon>NewReturnView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shifts\AllShiftsView.xaml.cs">
+      <DependentUpon>AllShiftsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StockLevels\StockLevelsView.xaml.cs">
+      <DependentUpon>StockLevelsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Suppliers\AllSuppliersView.xaml.cs">
+      <DependentUpon>AllSuppliersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Suppliers\NewSupplierView.xaml.cs">
+      <DependentUpon>NewSupplierView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Warehouses\AllWarehousesView.xaml.cs">
+      <DependentUpon>AllWarehousesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Warehouses\NewWarehouseView.xaml.cs">
+      <DependentUpon>NewWarehouseView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <EntityDeploy Include="Models\Entities\LogistiQ_DB_Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LogistiQ_DB_Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\Entities\LogistiQ_DB_Model.edmx.diagram">
+      <DependentUpon>LogistiQ_DB_Model.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BaseWorkspace\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BaseWorkspace\MainWindowResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Categories\AllCategoriesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Categories\NewCategoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Customers\AllCustomersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Customers\NewCustomerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Deliveries\AllDeliveriesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Deliveries\DeliveryDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Deliveries\NewDeliveryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Discounts\AllDiscountsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Discounts\NewDiscountView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Documents\AllDocumentsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Documents\NewDocumentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Employees\AllEmployeesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Employees\NewEmployeeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Inventory\InventoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Invoices\AllInvoicesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Invoices\NewInvoiceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Orders\AllOrdersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Orders\NewOrderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Orders\OrderDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Payments\AllPaymentsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Products\NewProductView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Products\AllProductsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Returns\AllReturnsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Returns\NewReturnView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Shifts\AllShiftsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StockLevels\StockLevelsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Suppliers\AllSuppliersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Suppliers\NewSupplierView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Warehouses\AllWarehousesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Warehouses\NewWarehouseView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\Entities\LogistiQ_DB_Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LogistiQ_DB_Model.edmx</DependentUpon>
+      <LastGenOutput>LogistiQ_DB_Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Entities\LogistiQ_DB_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LogistiQ_DB_Model.edmx</DependentUpon>
+      <LastGenOutput>LogistiQ_DB_Model.cs</LastGenOutput>
+    </Content>
+    <Content Include="script.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\EntitiesForView\BaseWorkspace\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
