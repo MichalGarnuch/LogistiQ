@@ -27,11 +27,11 @@
         <TextBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" Text="{Binding Path=ProductID, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="Start Date"/>
-        <TextBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" Text="{Binding Path=StartDate, UpdateSourceTrigger=PropertyChanged}"/>
-
+        <DatePicker Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" SelectedDate="{Binding Path=StartDate, UpdateSourceTrigger=PropertyChanged}"/>
+        
         <Label Grid.Column="0" Grid.Row="3" Margin="0,8,0,8" Content="EndDate"/>
-        <TextBox Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" Text="{Binding Path=EndDate, UpdateSourceTrigger=PropertyChanged}"/>
-
+        <DatePicker Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" SelectedDate="{Binding Path=EndDate, UpdateSourceTrigger=PropertyChanged}"/>
+        
         <Label Grid.Column="0" Grid.Row="4" Margin="0,8,0,8" Content="DiscountPercent"/>
         <TextBox Grid.Column="1" Grid.Row="4" Margin="0,8,0,8" Text="{Binding Path=DiscountPercent, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>

@@ -33,10 +33,10 @@
         <TextBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" Text="{Binding Path=CustomerID, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Column="0" Grid.Row="3" Margin="0,8,0,8" Content="IssueDate"/>
-        <TextBox Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" Text="{Binding Path=IssueDate, UpdateSourceTrigger=PropertyChanged}"/>
+        <DatePicker Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" SelectedDate="{Binding Path=IssueDate, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Column="0" Grid.Row="4" Margin="0,8,0,8" Content="DueDate"/>
-        <TextBox Grid.Column="1" Grid.Row="4" Margin="0,8,0,8" Text="{Binding Path=DueDate, UpdateSourceTrigger=PropertyChanged}"/>
+        <DatePicker Grid.Column="1" Grid.Row="4" Margin="0,8,0,8" SelectedDate="{Binding Path=DueDate, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Column="0" Grid.Row="5" Margin="0,8,0,8" Content="TotalAmount"/>
         <TextBox Grid.Column="1" Grid.Row="5" Margin="0,8,0,8" Text="{Binding Path=TotalAmount, UpdateSourceTrigger=PropertyChanged}"/>
