@@ -74,6 +74,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helper\BaseCommand.cs" />
+    <Compile Include="Models\BusinessLogic\BaseWorkspace\DatabaseClass.cs" />
     <Compile Include="Models\BusinessLogic\CategoryB.cs" />
     <Compile Include="Models\BusinessLogic\CustomerB.cs" />
     <Compile Include="Models\BusinessLogic\DeliveryB.cs" />
