@@ -47,7 +47,8 @@
         <TextBox Grid.Column="1" Grid.Row="6" Margin="0,8,0,8" Text="{Binding Path=VAT, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Column="0" Grid.Row="7" Margin="0,8,0,8" Content="CategoryID"/>
-        <TextBox Grid.Column="1" Grid.Row="7" Margin="0,8,0,8" Text="{Binding Path=CategoryID, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox Grid.Column="1" Grid.Row="7" Margin="0,8,0,8" ItemsSource="{Binding CategoryItems}"/>
+
     </Grid>
 </local:SingleRecordViewBase>
 

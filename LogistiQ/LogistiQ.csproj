@@ -74,6 +74,23 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Helper\BaseCommand.cs" />
+    <Compile Include="Models\BusinessLogic\CategoryB.cs" />
+    <Compile Include="Models\BusinessLogic\CustomerB.cs" />
+    <Compile Include="Models\BusinessLogic\DeliveryB.cs" />
+    <Compile Include="Models\BusinessLogic\DiscountB.cs" />
+    <Compile Include="Models\BusinessLogic\DocumentB.cs" />
+    <Compile Include="Models\BusinessLogic\EmployeeB.cs" />
+    <Compile Include="Models\BusinessLogic\InventoryB.cs" />
+    <Compile Include="Models\BusinessLogic\InvoiceB.cs" />
+    <Compile Include="Models\BusinessLogic\OrderB.cs" />
+    <Compile Include="Models\BusinessLogic\PaymentB.cs" />
+    <Compile Include="Models\BusinessLogic\ProductsB.cs" />
+    <Compile Include="Models\BusinessLogic\ReturnB.cs" />
+    <Compile Include="Models\BusinessLogic\ShiftB.cs" />
+    <Compile Include="Models\BusinessLogic\StockLevelB.cs" />
+    <Compile Include="Models\BusinessLogic\SupplierB.cs" />
+    <Compile Include="Models\BusinessLogic\WarehouseB.cs" />
+    <Compile Include="Models\EntitiesForView\BaseWorkspace\KeyAndValue.cs" />
     <Compile Include="Models\EntitiesForView\DeliveryDetailForAllView.cs" />
     <Compile Include="Models\EntitiesForView\DeliveryForAllView.cs" />
     <Compile Include="Models\EntitiesForView\DiscountForAllView.cs" />
@@ -482,7 +499,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\EntitiesForView\BaseWorkspace\" />
+    <Folder Include="Models\BusinessLogic\SharedLogic\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
