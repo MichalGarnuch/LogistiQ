@@ -1,4 +1,5 @@
 ﻿using LogistiQ.Models.Entities;
+using LogistiQ.Models.EntitiesForView.BaseWorkspace;
 using LogistiQ.Views.BaseWorkspace;
 using System;
 using System.Collections.Generic;
@@ -107,6 +108,18 @@ namespace LogistiQ.ViewModels.Documents
             }
         }
 
+        #endregion
+
+        #region PropertiesForCombobox
+
+        public IQueryable<KeyAndValue> WarehouseKeyAndValueItems
+        {
+            get
+            {
+                return new LogistiQ.Models.BusinessLogic.
+                    WarehouseB(logistiQ_Entities).GetWarehouseKeyAndValueItems();
+            }
+        }
         #endregion
 
         #region Helpers

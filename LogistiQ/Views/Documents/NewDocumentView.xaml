@@ -36,7 +36,10 @@
         <DatePicker Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" SelectedDate="{Binding Path=Date, UpdateSourceTrigger=PropertyChanged}"/>
         
         <Label Grid.Column="0" Grid.Row="4" Margin="0,8,0,8" Content="WarehouseID"/>
-        <TextBox Grid.Column="1" Grid.Row="4" Margin="0,8,0,8" Text="{Binding Path=WarehouseID, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox Grid.Column="1" Grid.Row="4" Margin="0,8,0,8" ItemsSource="{Binding WarehouseKeyAndValueItems}" 
+            DisplayMemberPath="Value"
+            SelectedValuePath="Key"
+            SelectedValue="{Binding Path=WarehouseID, Mode=TwoWay}"/>
         
         <Label Grid.Column="0" Grid.Row="5" Margin="0,8,0,8" Content="TotalValue"/>
         <TextBox Grid.Column="1" Grid.Row="5" Margin="0,8,0,8" Text="{Binding Path=TotalValue, UpdateSourceTrigger=PropertyChanged}"/>
