@@ -1,4 +1,5 @@
 ﻿using LogistiQ.Models.Entities;
+using LogistiQ.Models.EntitiesForView.BaseWorkspace;
 using LogistiQ.ViewModels.BaseWorkspace;
 using LogistiQ.Views.BaseWorkspace;
 using System;
@@ -88,6 +89,18 @@ namespace LogistiQ.ViewModels.Orders
 
         #endregion
 
+        #region PropertiesForCombobox
+
+        public IQueryable<KeyAndValue> CustomerKeyAndValueItems
+        {
+            get
+            {
+                return new LogistiQ.Models.BusinessLogic.
+                    CustomerB(logistiQ_Entities).GetCustomerKeyAndValueItems();
+            }
+        }
+
+        #endregion
         #region Helpers
         public override void Save()
         {

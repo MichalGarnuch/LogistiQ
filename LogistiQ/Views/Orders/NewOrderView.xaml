@@ -24,8 +24,11 @@
         <TextBox Grid.Column="1" Grid.Row="0" Margin="0,8,0,8" Text="{Binding Path=OrderID, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Column="0" Grid.Row="1" Margin="0,8,0,8" Content="CustomerID"/>
-        <TextBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" Text="{Binding Path=CustomerID, UpdateSourceTrigger=PropertyChanged}"/>
-
+        <ComboBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" ItemsSource="{Binding CustomerKeyAndValueItems}" 
+            DisplayMemberPath="Value"
+            SelectedValuePath="Key"
+            SelectedValue="{Binding Path=CustomerID, Mode=TwoWay}"/>
+        
         <Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="OrderDate"/>
         <DatePicker Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" SelectedDate="{Binding Path=OrderDate, UpdateSourceTrigger=PropertyChanged}"/>
         
