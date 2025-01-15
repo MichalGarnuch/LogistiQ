@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"  
              xmlns:local="clr-namespace:LogistiQ.Views.BaseWorkspace"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="400" d:DesignWidth="300">
 
     <Grid Background="White">
         <Grid.ColumnDefinitions>
@@ -47,8 +47,10 @@
         <TextBox Grid.Column="1" Grid.Row="6" Margin="0,8,0,8" Text="{Binding Path=VAT, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Column="0" Grid.Row="7" Margin="0,8,0,8" Content="CategoryID"/>
-        <ComboBox Grid.Column="1" Grid.Row="7" Margin="0,8,0,8" ItemsSource="{Binding CategoryItems}"/>
-
+        <ComboBox Grid.Column="1" Grid.Row="7" Margin="0,8,0,8" ItemsSource="{Binding CategoryKeyAndValueItems}" 
+                      DisplayMemberPath="Value"
+                      SelectedValuePath="Key"
+                      SelectedValue="{Binding Path=CategoryID, Mode=TwoWay}"/>
     </Grid>
 </local:SingleRecordViewBase>
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text; 
 using LogistiQ.ViewModels.BaseWorkspace;
 using LogistiQ.Views.BaseWorkspace;
+using LogistiQ.Models.EntitiesForView.BaseWorkspace;
 
 namespace LogistiQ.ViewModels.Products
 {
@@ -119,10 +120,24 @@ namespace LogistiQ.ViewModels.Products
         }
     }
 
-    #endregion
+        #endregion
 
-    #region Helpers
-    public override void Save()
+        #region PropertisyForCombobox
+
+        public IQueryable<KeyAndValue> CategoryKeyAndValueItems
+        {
+            get
+            {
+                return new LogistiQ.Models.BusinessLogic.
+                    CategoryB(logistiQ_Entities).GetCategoryKeyAndValueItems();
+            }
+        }
+
+
+        #endregion
+        #region Helpers
+
+        public override void Save()
     {
         logistiQ_Entities.Products.Add(item);//dodaje towar do lokalnej kolekcji
         logistiQ_Entities.SaveChanges();//zapisuje zmiany dokonane w bazie danych
