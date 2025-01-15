@@ -17,7 +17,7 @@ namespace LogistiQ.Models.BusinessLogic
         #endregion
         #region Funkcje biznesowe
         //dodamy funkcje która będzie zwracała id order oraz ich nazwy w KeyAndValue
-        public IQueryable<KeyAndValue> GetCustomerKeyAndValueItems()
+        public IQueryable<KeyAndValue> GetOrderKeyAndValueItems()
         {
             return
                 (

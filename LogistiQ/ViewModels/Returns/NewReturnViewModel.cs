@@ -1,4 +1,5 @@
 ﻿using LogistiQ.Models.Entities;
+using LogistiQ.Models.EntitiesForView.BaseWorkspace;
 using LogistiQ.ViewModels.BaseWorkspace;
 using LogistiQ.Views.BaseWorkspace;
 using System;
@@ -98,6 +99,26 @@ namespace LogistiQ.ViewModels.Returns
             }
         }
 
+        #endregion
+
+        #region PropertiesForCombobox
+
+        public IQueryable<KeyAndValue> OrderKeyAndValueItems
+        {
+            get
+            {
+                return new LogistiQ.Models.BusinessLogic.
+                    OrderB(logistiQ_Entities).GetOrderKeyAndValueItems();
+            }
+        }
+        public IQueryable<KeyAndValue> ProductKeyAndValueItems
+        {
+            get
+            {
+                return new LogistiQ.Models.BusinessLogic.
+                    ProductB(logistiQ_Entities).GetProductKeyAndValueItems();
+            }
+        }
         #endregion
 
         #region Helpers
