@@ -121,8 +121,8 @@ namespace LogistiQ.ViewModels.Products
     }
 
         #endregion
-
-        #region PropertisyForCombobox
+        //
+        #region PropertiesForCombobox
 
         public IQueryable<KeyAndValue> CategoryKeyAndValueItems
         {
@@ -132,9 +132,8 @@ namespace LogistiQ.ViewModels.Products
                     CategoryB(logistiQ_Entities).GetCategoryKeyAndValueItems();
             }
         }
-
-
         #endregion
+        //
         #region Helpers
 
         public override void Save()
