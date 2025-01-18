@@ -146,30 +146,58 @@ namespace LogistiQ.ViewModels.Products
     }
 
         #endregion
+
         #region Validation
 
         public string Error => string.Empty;
-        private string _validationMessage = string.Empty;
+        // Słownik przechowujący komunikaty błędów dla każdej właściwości
+        private readonly Dictionary<string, string> _validationMessages = new Dictionary<string, string>();
+
         public string this[string properties]
         {
             get
             {
-                var validateMessage = string.Empty;
+                string validateMessage = string.Empty;
 
                 if (properties == nameof(Name))
                 {
                     validateMessage = StringValidator.ValidateIsFirstLetterUpper(Name);
                 }
-                if (properties == nameof(UnitPrice))
+                else if (properties == nameof(UnitPrice))
                 {
                     validateMessage = BusinessValidator.ValidateIsPricePositive(UnitPrice);
                 }
+                else if (properties == nameof(Type))
+                {
+                    validateMessage = StringValidator.ValidateIsNotEmpty(Type);
+                }
+                else if (properties == nameof(Brand))
+                {
+                    validateMessage = StringValidator.ValidateIsNotEmpty(Brand);
+                }
+
+                // Aktualizujemy słownik błędów
+                if (!string.IsNullOrEmpty(validateMessage))
+                {
+                    _validationMessages[properties] = validateMessage;
+                }
+                else
+                {
+                    _validationMessages.Remove(properties);
+                }
+
                 return validateMessage;
             }
         }
-    
+
+        public override bool IsValid()
+        {
+            // Jeśli w słowniku nie ma błędów, wszystkie pola są poprawne
+            return !_validationMessages.Any();
+        }
 
         #endregion
+
 
     }
 }

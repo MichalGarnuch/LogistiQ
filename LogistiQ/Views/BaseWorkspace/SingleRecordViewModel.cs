@@ -82,9 +82,21 @@ namespace LogistiQ.Views.BaseWorkspace
         public abstract void Save();
         public void SaveAndClose()
         {
-            Save();
-            base.OnRequestClose();//zamknięcie zakładki
+            if (IsValid())
+            {
+                Save();
+                base.OnRequestClose();//zamknięcie zakładki
+            }
+            else
+            {
+                ShowMessageBox("Popraw błedy aby zapisać");
+            }
         }
+        #endregion
+
+        #region Validation
+        public virtual bool IsValid() => true;
+
         #endregion
     }
 }

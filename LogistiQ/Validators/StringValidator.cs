@@ -26,5 +26,14 @@ namespace LogistiQ.Validators
                 return ex.Message;
             }
         }
+        public static string ValidateIsNotEmpty(string text)
+        {
+            if (string.IsNullOrEmpty(text))
+            {
+                return "Pole jest wymagane.";
+            }
+
+            return string.Empty;
+        }
     }
 }

@@ -33,10 +33,12 @@
                  Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
 
         <Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="Type"/>
-        <TextBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" Text="{Binding Path=Type, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" 
+                 Text="{Binding Path=Type, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
 
         <Label Grid.Column="0" Grid.Row="3" Margin="0,8,0,8" Content="Brand"/>
-        <TextBox Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" Text="{Binding Path=Brand, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" 
+                 Text="{Binding Path=Brand, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
 
         <Label Grid.Column="0" Grid.Row="4" Margin="0,8,0,8" Content="UnitPrice"/>
         <TextBox Grid.Column="1" Grid.Row="4" Margin="0,8,0,8" 

@@ -16,7 +16,7 @@ namespace LogistiQ.Validators
                 return "Cena jest polem wymaganym.";
             }
 
-            if (price < 0)
+            if (price <= 0)
             {
                 return "Cena powinna być większa od 0.";
             }
