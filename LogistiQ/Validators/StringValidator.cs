@@ -12,16 +12,19 @@ namespace LogistiQ.Validators
         //Sprawd czy zaczyna sié od duej litery 
         public static string ValidateIsFirstLetterUpper(string text)
         {
-            if (string.IsNullOrEmpty(text))
+            try
             {
-                return "Pole nie może być puste";
+                if (string.IsNullOrEmpty(text))
+                {
+                    return "Nazwa jest polem wymaganym.";
+                }
+
+                return char.IsUpper(text, 0) ? string.Empty : "Rozpocznij dużą literą.";
             }
-            if (char.IsLower(text[0]))
+            catch (Exception ex)
             {
-                return string.Empty;
+                return ex.Message;
             }
-            return char.IsUpper(text, 0) ? string.Empty :
-                "Rozpocznij duża liter!";
         }
     }
 }

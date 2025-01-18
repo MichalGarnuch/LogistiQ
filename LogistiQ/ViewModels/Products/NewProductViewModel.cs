@@ -149,19 +149,25 @@ namespace LogistiQ.ViewModels.Products
         #region Validation
 
         public string Error => string.Empty;
-        public string this[string propertyName]
+        private string _validationMessage = string.Empty;
+        public string this[string properties]
         {
             get
             {
-                var validateMessage = string.Empty;   
+                var validateMessage = string.Empty;
 
-                if (propertyName == nameof(Name))
+                if (properties == nameof(Name))
                 {
                     validateMessage = StringValidator.ValidateIsFirstLetterUpper(Name);
+                }
+                if (properties == nameof(UnitPrice))
+                {
+                    validateMessage = BusinessValidator.ValidateIsPricePositive(UnitPrice);
                 }
                 return validateMessage;
             }
         }
+    
 
         #endregion
 

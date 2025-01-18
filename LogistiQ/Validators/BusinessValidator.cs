@@ -13,12 +13,14 @@ namespace LogistiQ.Validators
         {
             if (!price.HasValue)
             {
-                return "To pole jest wymagane";
+                return "Cena jest polem wymaganym.";
             }
-            if (price > 0)
+
+            if (price < 0)
             {
-                return "Wartość powinna być większa od 0";
+                return "Cena powinna być większa od 0.";
             }
+
             return string.Empty;
         }
     }
