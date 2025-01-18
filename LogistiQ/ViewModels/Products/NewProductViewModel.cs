@@ -5,13 +5,16 @@ using System.Text;
 using LogistiQ.ViewModels.BaseWorkspace;
 using LogistiQ.Views.BaseWorkspace;
 using LogistiQ.Models.EntitiesForView.BaseWorkspace;
+using System.ComponentModel;
+using System.Windows.Forms;
+using LogistiQ.Validators;
 
 namespace LogistiQ.ViewModels.Products
 {
-    public class NewProductViewModel : SingleRecordViewModel<LogistiQ.Models.Entities.Products>
+    public class NewProductViewModel : SingleRecordViewModel<LogistiQ.Models.Entities.Products>, IDataErrorInfo
     {
         
-        #region Konstruktor
+    #region Konstruktor
         public NewProductViewModel()
             : base("Products")
     {
@@ -122,7 +125,7 @@ namespace LogistiQ.ViewModels.Products
 
         #endregion
         //
-        #region PropertiesForCombobox
+    #region PropertiesForCombobox
 
         public IQueryable<KeyAndValue> CategoryKeyAndValueItems
         {
@@ -134,7 +137,7 @@ namespace LogistiQ.ViewModels.Products
         }
         #endregion
         //
-        #region Helpers
+    #region Helpers
 
         public override void Save()
     {
@@ -142,7 +145,26 @@ namespace LogistiQ.ViewModels.Products
         logistiQ_Entities.SaveChanges();//zapisuje zmiany dokonane w bazie danych
     }
 
-    #endregion
+        #endregion
+        #region Validation
+
+        public string Error => string.Empty;
+        public string this[string propertyName]
+        {
+            get
+            {
+                var validateMessage = string.Empty;   
+
+                if (propertyName == nameof(Name))
+                {
+                    validateMessage = StringValidator.ValidateIsFirstLetterUpper(Name);
+                }
+                return validateMessage;
+            }
+        }
+
+        #endregion
+
     }
 }
 

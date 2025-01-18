@@ -176,6 +176,8 @@
     <Compile Include="Models\Entities\Warehouses.cs">
       <DependentUpon>LogistiQ_DB_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Validators\BusinessValidator.cs" />
+    <Compile Include="Validators\StringValidator.cs" />
     <Compile Include="ViewModels\BaseWorkspace\AllViewModel.cs" />
     <Compile Include="ViewModels\BaseWorkspace\BaseViewModel.cs" />
     <Compile Include="ViewModels\BaseWorkspace\CommandViewModel.cs" />
