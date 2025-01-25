@@ -9,7 +9,6 @@ namespace LogistiQ.Validators
 {
     public static class StringValidator
     {
-        //Sprawd czy zaczyna sié od duej litery 
         public static string ValidateIsFirstLetterUpper(string text)
         {
             try
@@ -26,6 +25,7 @@ namespace LogistiQ.Validators
                 return ex.Message;
             }
         }
+
         public static string ValidateIsNotEmpty(string text)
         {
             if (string.IsNullOrEmpty(text))

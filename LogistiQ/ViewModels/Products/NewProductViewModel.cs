@@ -147,7 +147,7 @@ namespace LogistiQ.ViewModels.Products
 
         #endregion
 
-        #region Validation
+    #region Validation
 
         public string Error => string.Empty;
         // Słownik przechowujący komunikaty błędów dla każdej właściwości
