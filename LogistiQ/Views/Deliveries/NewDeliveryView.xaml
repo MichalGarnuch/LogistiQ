@@ -28,13 +28,13 @@
         <ComboBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" ItemsSource="{Binding SupplierKeyAndValueItems}" 
                 DisplayMemberPath="Value"
                 SelectedValuePath="Key"
-                SelectedValue="{Binding Path=SupplierID, Mode=TwoWay}"/>
+                SelectedValue="{Binding Path=SupplierID, Mode=TwoWay, ValidatesOnDataErrors=True}"/>
         
         <Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="DeliveryDate"/>
         <DatePicker Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" SelectedDate="{Binding Path=DeliveryDate, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Column="0" Grid.Row="3" Margin="0,8,0,8" Content="Cost"/>
-        <TextBox Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" Text="{Binding Path=Cost, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" Text="{Binding Path=Cost, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
 
         <Label Grid.Column="0" Grid.Row="4" Margin="0,8,0,8" Content="Status"/>
         <TextBox Grid.Column="1" Grid.Row="4" Margin="0,8,0,8" Text="{Binding Path=Status, UpdateSourceTrigger=PropertyChanged}"/>
@@ -43,6 +43,6 @@
         <ComboBox Grid.Column="1" Grid.Row="5" Margin="0,8,0,8" ItemsSource="{Binding WarehouseKeyAndValueItems}" 
         DisplayMemberPath="Value"
         SelectedValuePath="Key"
-        SelectedValue="{Binding Path=WarehouseID, Mode=TwoWay}"/>
+        SelectedValue="{Binding Path=WarehouseID, Mode=TwoWay, ValidatesOnDataErrors=True}"/>
     </Grid>
 </local:SingleRecordViewBase>
