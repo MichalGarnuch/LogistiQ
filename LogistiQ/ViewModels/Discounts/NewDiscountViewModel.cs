@@ -1,17 +1,20 @@
 ﻿using LogistiQ.Models.Entities;
 using LogistiQ.Models.EntitiesForView.BaseWorkspace;
+using LogistiQ.Validators;
 using LogistiQ.ViewModels.BaseWorkspace;
 using LogistiQ.Views.BaseWorkspace;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace LogistiQ.ViewModels.Discounts
 {
-    public class NewDiscountViewModel : SingleRecordViewModel<LogistiQ.Models.Entities.Discounts>
+    public class NewDiscountViewModel : SingleRecordViewModel<LogistiQ.Models.Entities.Discounts>, IDataErrorInfo
     {
 
         #region Konstruktor
@@ -109,6 +112,46 @@ namespace LogistiQ.ViewModels.Discounts
         }
 
         #endregion
-    }
 
+        #region Validation
+
+        public string Error => string.Empty;
+        // Słownik przechowujący komunikaty błędów dla każdej właściwości
+        private readonly Dictionary<string, string> _validationMessages = new Dictionary<string, string>();
+
+        public string this[string properties]
+        {
+            get
+            {
+                string validateMessage = string.Empty;
+
+                if (properties == nameof(ProductID))
+                {
+                    validateMessage = StringValidator.ValidateIsNotEmpty(ProductID?.ToString());
+                }
+
+                // Aktualizujemy słownik błędów
+                if (!string.IsNullOrEmpty(validateMessage))
+                {
+                    _validationMessages[properties] = validateMessage;
+                }
+                else
+                {
+                    _validationMessages.Remove(properties);
+                }
+
+                return validateMessage;
+            }
+        }
+
+        public override bool IsValid()
+        {
+            // Jeśli w słowniku nie ma błędów, wszystkie pola są poprawne
+            return !_validationMessages.Any();
+        }
+
+        #endregion
+
+
+    }
 }
