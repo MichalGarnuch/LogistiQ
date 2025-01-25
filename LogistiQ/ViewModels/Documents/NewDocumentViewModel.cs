@@ -1,15 +1,18 @@
-﻿using LogistiQ.Models.Entities;
+﻿using LogistiQ.Models.BusinessLogic;
+using LogistiQ.Models.Entities;
 using LogistiQ.Models.EntitiesForView.BaseWorkspace;
+using LogistiQ.Validators;
 using LogistiQ.Views.BaseWorkspace;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace LogistiQ.ViewModels.Documents
 {
-    public class NewDocumentViewModel : SingleRecordViewModel<LogistiQ.Models.Entities.Documents>
+    public class NewDocumentViewModel : SingleRecordViewModel<LogistiQ.Models.Entities.Documents>, IDataErrorInfo
     {
 
         #region Konstruktor
@@ -127,6 +130,57 @@ namespace LogistiQ.ViewModels.Documents
         {
             logistiQ_Entities.Documents.Add(item);//dodaje towar do lokalnej kolekcji
             logistiQ_Entities.SaveChanges();//zapisuje zmiany dokonane w bazie danych
+        }
+
+        #endregion
+
+        #region Validation
+
+        public string Error => string.Empty;
+        // Słownik przechowujący komunikaty błędów dla każdej właściwości
+        private readonly Dictionary<string, string> _validationMessages = new Dictionary<string, string>();
+
+        public string this[string properties]
+        {
+            get
+            {
+                string validateMessage = string.Empty;
+
+                if (properties == nameof(Type))
+                {
+                    validateMessage = StringValidator.ValidateIsNotEmpty(Type?.ToString());
+                }
+                else if (properties == nameof(DocumentNumber))
+                {
+                    validateMessage = StringValidator.ValidateIsNotEmpty(DocumentNumber);
+                }
+                else if (properties == nameof(WarehouseID))
+                {
+                    validateMessage = StringValidator.ValidateIsNotEmpty(WarehouseID?.ToString());
+                }
+                else if (properties == nameof(TotalValue))
+                {
+                    validateMessage = BusinessValidator.ValidateIsPricePositive(TotalValue);
+                }
+
+                // Aktualizujemy słownik błędów
+                if (!string.IsNullOrEmpty(validateMessage))
+                {
+                    _validationMessages[properties] = validateMessage;
+                }
+                else
+                {
+                    _validationMessages.Remove(properties);
+                }
+
+                return validateMessage;
+            }
+        }
+
+        public override bool IsValid()
+        {
+            // Jeśli w słowniku nie ma błędów, wszystkie pola są poprawne
+            return !_validationMessages.Any();
         }
 
         #endregion
