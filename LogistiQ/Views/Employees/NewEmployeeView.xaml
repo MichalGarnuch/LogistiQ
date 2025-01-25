@@ -25,10 +25,10 @@
         <TextBox Grid.Column="1" Grid.Row="0" Margin="0,8,0,8" Text="{Binding Path=EmployeeID, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Column="0" Grid.Row="1" Margin="0,8,0,8" Content="FirstName"/>
-        <TextBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" Text="{Binding Path=FirstName, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" Text="{Binding Path=FirstName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
 
         <Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="LastName"/>
-        <TextBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" Text="{Binding Path=LastName, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" Text="{Binding Path=LastName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
 
         <Label Grid.Column="0" Grid.Row="3" Margin="0,8,0,8" Content="Position"/>
         <TextBox Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" Text="{Binding Path=Position, UpdateSourceTrigger=PropertyChanged}"/>
@@ -37,7 +37,7 @@
         <ComboBox Grid.Column="1" Grid.Row="4" Margin="0,8,0,8" ItemsSource="{Binding WarehouseKeyAndValueItems}" 
             DisplayMemberPath="Value"
             SelectedValuePath="Key"
-            SelectedValue="{Binding Path=WarehouseID, Mode=TwoWay}"/>
+            SelectedValue="{Binding Path=WarehouseID, Mode=TwoWay, ValidatesOnDataErrors=True}"/>
 
         <Label Grid.Column="0" Grid.Row="5" Margin="0,8,0,8" Content="Remarks"/>
         <TextBox Grid.Column="1" Grid.Row="5" Margin="0,8,0,8" Text="{Binding Path=Remarks, UpdateSourceTrigger=PropertyChanged}"/>
