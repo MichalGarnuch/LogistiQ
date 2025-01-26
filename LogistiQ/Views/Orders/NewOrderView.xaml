@@ -27,7 +27,7 @@
         <ComboBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" ItemsSource="{Binding CustomerKeyAndValueItems}" 
             DisplayMemberPath="Value"
             SelectedValuePath="Key"
-            SelectedValue="{Binding Path=CustomerID, Mode=TwoWay}"/>
+            SelectedValue="{Binding Path=CustomerID, Mode=TwoWay, ValidatesOnDataErrors=True}"/>
         
         <Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="OrderDate"/>
         <DatePicker Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" SelectedDate="{Binding Path=OrderDate, UpdateSourceTrigger=PropertyChanged}"/>
