@@ -25,7 +25,7 @@
         <TextBox Grid.Column="1" Grid.Row="0" Margin="0,8,0,8" Text="{Binding Path=SupplierID, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Column="0" Grid.Row="1" Margin="0,8,0,8" Content="Name"/>
-        <TextBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
 
         <Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="Address"/>
         <TextBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" Text="{Binding Path=Address, UpdateSourceTrigger=PropertyChanged}"/>
@@ -34,7 +34,7 @@
         <TextBox Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" Text="{Binding Path=Phone, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Column="0" Grid.Row="4" Margin="0,8,0,8" Content="Email"/>
-        <TextBox Grid.Column="1" Grid.Row="4" Margin="0,8,0,8" Text="{Binding Path=Email, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.Row="4" Margin="0,8,0,8" Text="{Binding Path=Email, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
 
         <Label Grid.Column="0" Grid.Row="5" Margin="0,8,0,8" Content="Reamrks"/>
         <TextBox Grid.Column="1" Grid.Row="5" Margin="0,8,0,8" Text="{Binding Path=Remarks, UpdateSourceTrigger=PropertyChanged}"/>
