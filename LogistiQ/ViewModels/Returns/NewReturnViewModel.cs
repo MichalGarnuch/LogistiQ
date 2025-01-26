@@ -7,11 +7,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
+using LogistiQ.Validators;
+using System.Xml.Linq;
 
 namespace LogistiQ.ViewModels.Returns
 {
 
-    public class NewReturnViewModel : SingleRecordViewModel<LogistiQ.Models.Entities.Returns>
+    public class NewReturnViewModel : SingleRecordViewModel<LogistiQ.Models.Entities.Returns>, IDataErrorInfo
     {
 
         #region Konstruktor
@@ -126,6 +129,49 @@ namespace LogistiQ.ViewModels.Returns
         {
             logistiQ_Entities.Returns.Add(item);//dodaje towar do lokalnej kolekcji
             logistiQ_Entities.SaveChanges();//zapisuje zmiany dokonane w bazie danych
+        }
+
+        #endregion
+
+        #region Validation
+
+        public string Error => string.Empty;
+        // Słownik przechowujący komunikaty błędów dla każdej właściwości
+        private readonly Dictionary<string, string> _validationMessages = new Dictionary<string, string>();
+
+        public string this[string properties]
+        {
+            get
+            {
+                string validateMessage = string.Empty;
+
+                if (properties == nameof(OrderID))
+                {
+                    validateMessage = StringValidator.ValidateIsNotEmpty(OrderID?.ToString());
+                }
+                else if (properties == nameof(ProductID))
+                {
+                    validateMessage = StringValidator.ValidateIsNotEmpty(ProductID?.ToString());
+                }
+
+                // Aktualizujemy słownik błędów
+                if (!string.IsNullOrEmpty(validateMessage))
+                {
+                    _validationMessages[properties] = validateMessage;
+                }
+                else
+                {
+                    _validationMessages.Remove(properties);
+                }
+
+                return validateMessage;
+            }
+        }
+
+        public override bool IsValid()
+        {
+            // Jeśli w słowniku nie ma błędów, wszystkie pola są poprawne
+            return !_validationMessages.Any();
         }
 
         #endregion
