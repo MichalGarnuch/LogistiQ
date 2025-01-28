@@ -22,10 +22,10 @@
         <TextBox Grid.Column="1" Grid.Row="0" Margin="0,8,0,8" Text="{Binding Path=WarehouseID, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Column="0" Grid.Row="1" Margin="0,8,0,8" Content="Name"/>
-        <TextBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
 
         <Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="Location"/>
-        <TextBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" Text="{Binding Path=Location, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" Text="{Binding Path=Location, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
 
         <Label Grid.Column="0" Grid.Row="3" Margin="0,8,0,8" Content="Capacity"/>
         <TextBox Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" Text="{Binding Path=Capacity, UpdateSourceTrigger=PropertyChanged}"/>

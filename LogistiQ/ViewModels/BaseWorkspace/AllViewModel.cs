@@ -17,9 +17,9 @@ namespace LogistiQ.ViewModels.BaseWorkspace
         #region DB
         protected readonly LogistiQ_Entities logistiq_Entities;
         #endregion
-        private BaseCommand _LoadCommand;
         #region LoadCommand
 
+        private BaseCommand _LoadCommand;
         public ICommand LoadCommand
         {
             get
@@ -77,6 +77,57 @@ namespace LogistiQ.ViewModels.BaseWorkspace
             logistiq_Entities = new LogistiQ_Entities();
         }
         #endregion
+
+        #region Sort And Filtr
+        // do sortowania
+        //wynik wyboru poczym sortować zostanie zapisany w SortField
+        public string SortField { get; set; }
+        public List<string> SortComboboxItems
+            { 
+                get
+                {
+                    return GetComboboxSortList();
+                }
+        }
+        public abstract List<string> GetComboboxSortList();
+
+        private BaseCommand _SortCommand; //po naciśnieciu na przysk ortuj po sortowaniu(generic.xaml)
+        public ICommand SortCommand
+        {
+            get
+            {
+                if (_SortCommand == null)
+                    _SortCommand = new BaseCommand(() => Sort());
+                return _SortCommand;
+            }
+        }
+        public abstract void Sort();
+        //do filtrowania
+        public string FindField { get; set; }
+        public List<string> FindComboboxItems
+        {
+            get
+            {
+                return GetComboboxFindList();
+            }
+        }
+        public abstract List<string> GetComboboxFindList();
+
+        public string FindTextBox { get; set; }
+
+        private BaseCommand _FindCommand; //po naciśnieciu na przysk ortuj szukaj w wyszukiwaniu(generic.xaml)
+        public ICommand FindCommand
+        {
+            get
+            {
+                if (_FindCommand == null)
+                    _FindCommand = new BaseCommand(() => Find());
+                return _FindCommand;
+            }
+        }
+        public abstract void Find();
+        #endregion
+
         #region Helpers
         public abstract void Load();
 

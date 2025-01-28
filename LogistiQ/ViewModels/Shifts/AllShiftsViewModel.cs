@@ -27,6 +27,31 @@ namespace LogistiQ.ViewModels.Shifts
         }
         public new void AddNew() { }
         #endregion
+
+        #region Sort And Find
+        //tu decydujemy po czym sortować do comboboxa
+        public override List<string> GetComboboxSortList()
+        {
+            throw new System.NotImplementedException();
+        }
+        //tu decydujemy jak sortować
+        public override void Sort()
+        {
+            throw new System.NotImplementedException();
+        }
+        //tu decydujemy po czym wyszukiwać
+        public override List<string> GetComboboxFindList()
+        {
+            throw new System.NotImplementedException();
+        }
+        //tu decydujemy jak wyszukiwać
+        public override void Find()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
+
         #region Helpers
         public override void Load()
         {

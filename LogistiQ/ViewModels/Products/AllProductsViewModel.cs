@@ -7,6 +7,7 @@ using System.Windows.Input;
 using LogistiQ.Views.BaseWorkspace;
 using System.Linq;
 using LogistiQ.Models.EntitiesForView;
+using System.Collections.Generic;
 
 namespace LogistiQ.ViewModels.Products
 {
@@ -24,7 +25,33 @@ namespace LogistiQ.ViewModels.Products
         {
             return new NewProductViewModel(); // Zwracamy odpowiedni ViewModel
         }
+
         #endregion
+
+        #region Sort And Find
+        //tu decydujemy po czym sortować do comboboxa
+        public override List<string> GetComboboxSortList()
+        {
+            return new List<string> { "name", "type", "brand" };
+        }
+        //tu decydujemy jak sortować
+        public override void Sort()
+        {
+            throw new System.NotImplementedException();
+        }
+        //tu decydujemy po czym wyszukiwać
+        public override List<string> GetComboboxFindList()
+        {
+            return new List<string> { "name", "type" };
+        }
+        //tu decydujemy jak wyszukiwać
+        public override void Find()
+        {
+            throw new System.NotImplementedException();
+        }
+     
+        #endregion
+
         #region Helpers
         public override void Load()
         {
