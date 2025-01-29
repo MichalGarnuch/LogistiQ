@@ -31,22 +31,29 @@ namespace LogistiQ.ViewModels.Employees
         //tu decydujemy po czym sortować do comboboxa
         public override List<string> GetComboboxSortList()
         {
-            throw new System.NotImplementedException();
+            return new List<string> { "first name", "last name" };
         }
         //tu decydujemy jak sortować
         public override void Sort()
         {
-            throw new System.NotImplementedException();
+            if (SortField == "first name")
+                List = new ObservableCollection<EmployeeForAllView>(List.OrderBy(item => item.FirstName));
+            if (SortField == "last name")
+                List = new ObservableCollection<EmployeeForAllView>(List.OrderBy(item => item.LastName));
         }
         //tu decydujemy po czym wyszukiwać
         public override List<string> GetComboboxFindList()
         {
-            throw new System.NotImplementedException();
+            return new List<string> { "first name", "last name" };
         }
         //tu decydujemy jak wyszukiwać
         public override void Find()
         {
-            throw new System.NotImplementedException();
+            Load();
+            if (FindField == "first name")
+                List = new ObservableCollection<EmployeeForAllView>(List.Where(item => item.FirstName != null && item.FirstName.StartsWith(FindTextBox)));
+            if (FindField == "last name")
+                List = new ObservableCollection<EmployeeForAllView>(List.Where(item => item.LastName != null && item.LastName.StartsWith(FindTextBox)));
         }
 
         #endregion

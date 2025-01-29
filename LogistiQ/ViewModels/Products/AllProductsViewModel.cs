@@ -32,12 +32,21 @@ namespace LogistiQ.ViewModels.Products
         //tu decydujemy po czym sortować do comboboxa
         public override List<string> GetComboboxSortList()
         {
-            return new List<string> { "name", "type", "brand" };
+            return new List<string> { "id", "name", "type", "brand", "name and type" };
         }
         //tu decydujemy jak sortować
         public override void Sort()
         {
-            throw new System.NotImplementedException();
+            if(SortField=="id")
+                List=new ObservableCollection<ProductForAllView> (List.OrderBy(item => item.ProductID));
+            if(SortField=="name")
+                List=new ObservableCollection<ProductForAllView> (List.OrderBy(item => item.Name));
+            if(SortField=="type")
+                List=new ObservableCollection<ProductForAllView> (List.OrderBy(item => item.Type));
+            if(SortField=="brand")
+                List=new ObservableCollection<ProductForAllView> (List.OrderBy(item => item.Brand));
+            if(SortField=="name and type")
+                List=new ObservableCollection<ProductForAllView> (List.OrderBy(item => item.Name).OrderBy(item => item.Type));
         }
         //tu decydujemy po czym wyszukiwać
         public override List<string> GetComboboxFindList()
@@ -47,7 +56,11 @@ namespace LogistiQ.ViewModels.Products
         //tu decydujemy jak wyszukiwać
         public override void Find()
         {
-            throw new System.NotImplementedException();
+            Load();
+            if (FindField == "name")
+                List = new ObservableCollection<ProductForAllView>(List.Where(item => item.Name != null && item.Name.StartsWith(FindTextBox)));
+            if (FindField == "type")
+                List = new ObservableCollection<ProductForAllView>(List.Where(item => item.Type != null && item.Type.StartsWith(FindTextBox)));
         }
      
         #endregion

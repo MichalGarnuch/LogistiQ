@@ -34,22 +34,29 @@ namespace LogistiQ.ViewModels.Inventory
         //tu decydujemy po czym sortować do comboboxa
         public override List<string> GetComboboxSortList()
         {
-            throw new System.NotImplementedException();
+            return new List<string> { "warehouse name", "product name" };
         }
         //tu decydujemy jak sortować
         public override void Sort()
         {
-            throw new System.NotImplementedException();
+            if (SortField == "warehouse name")
+                List = new ObservableCollection<InventoryForAllView>(List.OrderBy(item => item.WarehouseName));
+            if (SortField == "product name")
+                List = new ObservableCollection<InventoryForAllView>(List.OrderBy(item => item.ProductName));
         }
         //tu decydujemy po czym wyszukiwać
         public override List<string> GetComboboxFindList()
         {
-            throw new System.NotImplementedException();
+            return new List<string> { "warehouse name", "product name" };
         }
         //tu decydujemy jak wyszukiwać
         public override void Find()
         {
-            throw new System.NotImplementedException();
+            Load();
+            if (FindField == "warehouse name")
+                List = new ObservableCollection<InventoryForAllView>(List.Where(item => item.WarehouseName != null && item.WarehouseName.StartsWith(FindTextBox)));
+            if (FindField == "product name")
+                List = new ObservableCollection<InventoryForAllView>(List.Where(item => item.ProductName != null && item.ProductName.StartsWith(FindTextBox)));
         }
 
         #endregion

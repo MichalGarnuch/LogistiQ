@@ -84,6 +84,7 @@
     <Compile Include="Models\BusinessLogic\SupplierB.cs" />
     <Compile Include="Models\BusinessLogic\WarehouseB.cs" />
     <Compile Include="Models\EntitiesForView\BaseWorkspace\KeyAndValue.cs" />
+    <Compile Include="Models\EntitiesForView\CategoryForAllView.cs" />
     <Compile Include="Models\EntitiesForView\DeliveryDetailForAllView.cs" />
     <Compile Include="Models\EntitiesForView\DeliveryForAllView.cs" />
     <Compile Include="Models\EntitiesForView\DiscountForAllView.cs" />

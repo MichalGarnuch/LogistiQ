@@ -32,22 +32,25 @@ namespace LogistiQ.ViewModels.Payments
         //tu decydujemy po czym sortować do comboboxa
         public override List<string> GetComboboxSortList()
         {
-            throw new System.NotImplementedException();
+            return new List<string> { "method" };
         }
         //tu decydujemy jak sortować
         public override void Sort()
         {
-            throw new System.NotImplementedException();
+            if (SortField == "method")
+                List = new ObservableCollection<PaymentForAllView>(List.OrderBy(item => item.PaymentMethod));
         }
         //tu decydujemy po czym wyszukiwać
         public override List<string> GetComboboxFindList()
         {
-            throw new System.NotImplementedException();
+            return new List<string> { "method" };
         }
         //tu decydujemy jak wyszukiwać
         public override void Find()
         {
-            throw new System.NotImplementedException();
+            Load();
+            if (FindField == "method")
+                List = new ObservableCollection<PaymentForAllView>(List.Where(item => item.PaymentMethod != null && item.PaymentMethod.StartsWith(FindTextBox)));
         }
 
         #endregion

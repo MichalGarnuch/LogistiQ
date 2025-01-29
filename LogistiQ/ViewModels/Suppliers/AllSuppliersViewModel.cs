@@ -1,4 +1,5 @@
-﻿using LogistiQ.ViewModels.BaseWorkspace;
+﻿using LogistiQ.Models.EntitiesForView;
+using LogistiQ.ViewModels.BaseWorkspace;
 using LogistiQ.ViewModels.Products;
 using System;
 using System.Collections.Generic;
@@ -30,22 +31,29 @@ namespace LogistiQ.ViewModels.Suppliers
         //tu decydujemy po czym sortować do comboboxa
         public override List<string> GetComboboxSortList()
         {
-            throw new System.NotImplementedException();
+            return new List<string> { "name", "address" };
         }
         //tu decydujemy jak sortować
         public override void Sort()
         {
-            throw new System.NotImplementedException();
+            if (SortField == "name")
+                List = new ObservableCollection<LogistiQ.Models.Entities.Suppliers>(List.OrderBy(item => item.Name));
+            if (SortField == "address")
+                List = new ObservableCollection<LogistiQ.Models.Entities.Suppliers>(List.OrderBy(item => item.Address));
         }
         //tu decydujemy po czym wyszukiwać
         public override List<string> GetComboboxFindList()
         {
-            throw new System.NotImplementedException();
+            return new List<string> { "name", "address" };
         }
         //tu decydujemy jak wyszukiwać
         public override void Find()
         {
-            throw new System.NotImplementedException();
+            Load();
+            if (FindField == "name")
+                List = new ObservableCollection<LogistiQ.Models.Entities.Suppliers>(List.Where(item => item.Name != null && item.Name.StartsWith(FindTextBox)));
+            if (FindField == "address")
+                List = new ObservableCollection<LogistiQ.Models.Entities.Suppliers>(List.Where(item => item.Address != null && item.Address.StartsWith(FindTextBox)));
         }
 
         #endregion

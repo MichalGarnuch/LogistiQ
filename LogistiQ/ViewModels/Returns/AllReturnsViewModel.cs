@@ -31,22 +31,29 @@ namespace LogistiQ.ViewModels.Returns
         //tu decydujemy po czym sortować do comboboxa
         public override List<string> GetComboboxSortList()
         {
-            throw new System.NotImplementedException();
+            return new List<string> { "product name", "customer email" };
         }
         //tu decydujemy jak sortować
         public override void Sort()
         {
-            throw new System.NotImplementedException();
+            if (SortField == "product name")
+                List = new ObservableCollection<ReturnForAllView>(List.OrderBy(item => item.ProductName));
+            if (SortField == "customer email")
+                List = new ObservableCollection<ReturnForAllView>(List.OrderBy(item => item.OrderCustomerIDEmail));
         }
         //tu decydujemy po czym wyszukiwać
         public override List<string> GetComboboxFindList()
         {
-            throw new System.NotImplementedException();
+            return new List<string> { "product name", "customer email" };
         }
         //tu decydujemy jak wyszukiwać
         public override void Find()
         {
-            throw new System.NotImplementedException();
+            Load();
+            if (FindField == "product name")
+                List = new ObservableCollection<ReturnForAllView>(List.Where(item => item.ProductName != null && item.ProductName.StartsWith(FindTextBox)));
+            if (FindField == "customer email")
+                List = new ObservableCollection<ReturnForAllView>(List.Where(item => item.OrderCustomerIDEmail != null && item.OrderCustomerIDEmail.StartsWith(FindTextBox)));
         }
 
         #endregion

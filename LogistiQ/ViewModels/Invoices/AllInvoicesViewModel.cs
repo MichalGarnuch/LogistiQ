@@ -32,22 +32,29 @@ namespace LogistiQ.ViewModels.Invoices
         //tu decydujemy po czym sortować do comboboxa
         public override List<string> GetComboboxSortList()
         {
-            throw new System.NotImplementedException();
+            return new List<string> { "document number", "first name customer"};
         }
         //tu decydujemy jak sortować
         public override void Sort()
         {
-            throw new System.NotImplementedException();
+            if (SortField == "document number")
+                List = new ObservableCollection<InvoiceForAllView>(List.OrderBy(item => item.DocumentDocumentNumber));
+            if (SortField == "first name customer")
+                List = new ObservableCollection<InvoiceForAllView>(List.OrderBy(item => item.CustomerFirstName));
         }
         //tu decydujemy po czym wyszukiwać
         public override List<string> GetComboboxFindList()
         {
-            throw new System.NotImplementedException();
+            return new List<string> { "document number", "first name customer" };
         }
         //tu decydujemy jak wyszukiwać
         public override void Find()
         {
-            throw new System.NotImplementedException();
+            Load();
+            if (FindField == "document number")
+                List = new ObservableCollection<InvoiceForAllView>(List.Where(item => item.DocumentDocumentNumber != null && item.DocumentDocumentNumber.StartsWith(FindTextBox)));
+            if (FindField == "first name customer")
+                List = new ObservableCollection<InvoiceForAllView>(List.Where(item => item.CustomerFirstName != null && item.CustomerFirstName.StartsWith(FindTextBox)));
         }
 
         #endregion

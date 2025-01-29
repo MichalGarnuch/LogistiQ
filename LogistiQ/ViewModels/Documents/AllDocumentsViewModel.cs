@@ -32,22 +32,29 @@ namespace LogistiQ.ViewModels.Documents
         //tu decydujemy po czym sortować do comboboxa
         public override List<string> GetComboboxSortList()
         {
-            throw new System.NotImplementedException();
+            return new List<string> { "name", "type"};
         }
         //tu decydujemy jak sortować
         public override void Sort()
         {
-            throw new System.NotImplementedException();
+            if (SortField == "name")
+                List = new ObservableCollection<DocumentForAllView>(List.OrderBy(item => item.DocumentNumber));
+            if (SortField == "type")
+                List = new ObservableCollection<DocumentForAllView>(List.OrderBy(item => item.Type));
         }
         //tu decydujemy po czym wyszukiwać
         public override List<string> GetComboboxFindList()
         {
-            throw new System.NotImplementedException();
+            return new List<string> { "name", "type" };
         }
         //tu decydujemy jak wyszukiwać
         public override void Find()
         {
-            throw new System.NotImplementedException();
+            Load();
+            if (FindField == "name")
+                List = new ObservableCollection<DocumentForAllView>(List.Where(item => item.DocumentNumber != null && item.DocumentNumber.StartsWith(FindTextBox)));
+            if (FindField == "type")
+                List = new ObservableCollection<DocumentForAllView>(List.Where(item => item.Type != null && item.Type.StartsWith(FindTextBox)));
         }
 
         #endregion

@@ -31,22 +31,29 @@ namespace LogistiQ.ViewModels.Deliveries
         //tu decydujemy po czym sortować do comboboxa
         public override List<string> GetComboboxSortList()
         {
-            throw new System.NotImplementedException();
+            return new List<string> { "name supplier", "name product"};
         }
         //tu decydujemy jak sortować
         public override void Sort()
         {
-            throw new System.NotImplementedException();
+            if (SortField == "name supplier")
+                List = new ObservableCollection<DeliveryDetailForAllView>(List.OrderBy(item => item.DeliverySupplierIDName));
+            if (SortField == "name product")
+                List = new ObservableCollection<DeliveryDetailForAllView>(List.OrderBy(item => item.ProductName));
         }
         //tu decydujemy po czym wyszukiwać
         public override List<string> GetComboboxFindList()
         {
-            throw new System.NotImplementedException();
+            return new List<string> { "name supplier", "name product" };
         }
         //tu decydujemy jak wyszukiwać
         public override void Find()
         {
-            throw new System.NotImplementedException();
+            Load();
+            if (FindField == "name supplier")
+                List = new ObservableCollection<DeliveryDetailForAllView>(List.Where(item => item.DeliverySupplierIDName != null && item.DeliverySupplierIDName.StartsWith(FindTextBox)));
+            if (FindField == "name product")
+                List = new ObservableCollection<DeliveryDetailForAllView>(List.Where(item => item.ProductName != null && item.ProductName.StartsWith(FindTextBox)));
         }
 
         #endregion

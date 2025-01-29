@@ -32,22 +32,29 @@ namespace LogistiQ.ViewModels.Shifts
         //tu decydujemy po czym sortować do comboboxa
         public override List<string> GetComboboxSortList()
         {
-            throw new System.NotImplementedException();
+            return new List<string> { "employee first name", "employee last name" };
         }
         //tu decydujemy jak sortować
         public override void Sort()
         {
-            throw new System.NotImplementedException();
+            if (SortField == "employee first name")
+                List = new ObservableCollection<ShiftForAllView>(List.OrderBy(item => item.EmployeeFirstName));
+            if (SortField == "employee last name")
+                List = new ObservableCollection<ShiftForAllView>(List.OrderBy(item => item.EmployeeLastName));
         }
         //tu decydujemy po czym wyszukiwać
         public override List<string> GetComboboxFindList()
         {
-            throw new System.NotImplementedException();
+            return new List<string> { "employee first name", "employee last name" };
         }
         //tu decydujemy jak wyszukiwać
         public override void Find()
         {
-            throw new System.NotImplementedException();
+            Load();
+            if (FindField == "employee first name")
+                List = new ObservableCollection<ShiftForAllView>(List.Where(item => item.EmployeeFirstName != null && item.EmployeeFirstName.StartsWith(FindTextBox)));
+            if (FindField == "employee last name")
+                List = new ObservableCollection<ShiftForAllView>(List.Where(item => item.EmployeeLastName != null && item.EmployeeLastName.StartsWith(FindTextBox)));
         }
 
         #endregion

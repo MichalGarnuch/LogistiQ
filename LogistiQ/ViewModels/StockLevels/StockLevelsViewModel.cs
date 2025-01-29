@@ -32,22 +32,29 @@ namespace LogistiQ.ViewModels.StockLevels
         //tu decydujemy po czym sortować do comboboxa
         public override List<string> GetComboboxSortList()
         {
-            throw new System.NotImplementedException();
+            return new List<string> { "warehouse name", "warehouses location" };
         }
         //tu decydujemy jak sortować
         public override void Sort()
         {
-            throw new System.NotImplementedException();
+            if (SortField == "warehouse name")
+                List = new ObservableCollection<StockLevelForAllView>(List.OrderBy(item => item.WarehouseName));
+            if (SortField == "warehouses location")
+                List = new ObservableCollection<StockLevelForAllView>(List.OrderBy(item => item.WarehouseLocation));
         }
         //tu decydujemy po czym wyszukiwać
         public override List<string> GetComboboxFindList()
         {
-            throw new System.NotImplementedException();
+            return new List<string> { "warehouse name", "warehouses location" };
         }
         //tu decydujemy jak wyszukiwać
         public override void Find()
         {
-            throw new System.NotImplementedException();
+            Load();
+            if (FindField == "warehouse name")
+                List = new ObservableCollection<StockLevelForAllView>(List.Where(item => item.WarehouseName != null && item.WarehouseName.StartsWith(FindTextBox)));
+            if (FindField == "warehouses location")
+                List = new ObservableCollection<StockLevelForAllView>(List.Where(item => item.WarehouseLocation != null && item.WarehouseLocation.StartsWith(FindTextBox)));
         }
 
         #endregion

@@ -31,22 +31,29 @@ namespace LogistiQ.ViewModels.Discounts
         //tu decydujemy po czym sortować do comboboxa
         public override List<string> GetComboboxSortList()
         {
-            throw new System.NotImplementedException();
+            return new List<string> { "product name", "product type"};
         }
         //tu decydujemy jak sortować
         public override void Sort()
         {
-            throw new System.NotImplementedException();
+            if (SortField == "product name")
+                List = new ObservableCollection<DiscountForAllView>(List.OrderBy(item => item.ProductName));
+            if (SortField == "product type")
+                List = new ObservableCollection<DiscountForAllView>(List.OrderBy(item => item.ProductType));
         }
         //tu decydujemy po czym wyszukiwać
         public override List<string> GetComboboxFindList()
         {
-            throw new System.NotImplementedException();
+            return new List<string> { "product name", "product type" };
         }
         //tu decydujemy jak wyszukiwać
         public override void Find()
         {
-            throw new System.NotImplementedException();
+            Load();
+            if (FindField == "product name")
+                List = new ObservableCollection<DiscountForAllView>(List.Where(item => item.ProductName != null && item.ProductName.StartsWith(FindTextBox)));
+            if (FindField == "product type")
+                List = new ObservableCollection<DiscountForAllView>(List.Where(item => item.ProductType != null && item.ProductType.StartsWith(FindTextBox)));
         }
 
         #endregion

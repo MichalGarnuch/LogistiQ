@@ -78,7 +78,7 @@ namespace LogistiQ.ViewModels.BaseWorkspace
         }
         #endregion
 
-        #region Sort And Filtr
+        #region Sort And Find
         // do sortowania
         //wynik wyboru poczym sortować zostanie zapisany w SortField
         public string SortField { get; set; }
