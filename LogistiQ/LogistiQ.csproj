@@ -220,6 +220,9 @@
     </Compile>
     <Compile Include="Views\BaseWorkspace\SingleRecordViewBase.cs" />
     <Compile Include="Views\BaseWorkspace\SingleRecordViewModel.cs" />
+    <Compile Include="Views\BusinessLogicView\WarehouseOverviewView.xaml.cs">
+      <DependentUpon>WarehouseOverviewView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Categories\AllCategoriesView.xaml.cs">
       <DependentUpon>AllCategoriesView.xaml</DependentUpon>
     </Compile>
@@ -354,6 +357,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BaseWorkspace\MainWindowResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BusinessLogicView\WarehouseOverviewView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
