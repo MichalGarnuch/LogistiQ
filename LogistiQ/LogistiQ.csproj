@@ -183,6 +183,8 @@
     <Compile Include="ViewModels\BaseWorkspace\BaseViewModel.cs" />
     <Compile Include="ViewModels\BaseWorkspace\CommandViewModel.cs" />
     <Compile Include="ViewModels\BaseWorkspace\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\BusinessLogicViewModel\DeliveryRecordViewModel.cs" />
+    <Compile Include="ViewModels\BusinessLogicViewModel\OrderRecordViewModel.cs" />
     <Compile Include="ViewModels\BusinessLogicViewModel\WarehouseOverviewViewModel.cs" />
     <Compile Include="ViewModels\Categories\AllCategoriesViewModel.cs" />
     <Compile Include="ViewModels\Categories\NewCategoryViewModel.cs" />
@@ -221,6 +223,12 @@
     </Compile>
     <Compile Include="Views\BaseWorkspace\SingleRecordViewBase.cs" />
     <Compile Include="Views\BaseWorkspace\SingleRecordViewModel.cs" />
+    <Compile Include="Views\BusinessLogicView\DeliveryRecordView.xaml.cs">
+      <DependentUpon>DeliveryRecordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BusinessLogicView\OrderRecordView.xaml.cs">
+      <DependentUpon>OrderRecordView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BusinessLogicView\WarehouseOverviewView.xaml.cs">
       <DependentUpon>WarehouseOverviewView.xaml</DependentUpon>
     </Compile>
@@ -358,6 +366,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BaseWorkspace\MainWindowResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BusinessLogicView\DeliveryRecordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BusinessLogicView\OrderRecordView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

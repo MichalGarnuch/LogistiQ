@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="LogistiQ.Views.BusinessLogicView.WarehouseOverviewView"
+﻿<UserControl x:Class="LogistiQ.Views.BusinessLogicView.DeliveryRecordView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -13,7 +13,7 @@
             <RowDefinition Height="110"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Content="PRZEGLĄD STANÓW MAGAZYNOWYCH" Margin="0" HorizontalAlignment="Center"/>
+        <Label Grid.Row="0" Content="PRZEGLĄD DOSTAW MAGAZYNOWYCH" Margin="0" HorizontalAlignment="Center"/>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -24,8 +24,9 @@
         </Grid>
         <DataGrid Grid.Row="2" AutoGenerateColumns="False" ItemsSource="{Binding StockList}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Product" Binding="{Binding ProductName}"/>
-                <DataGridTextColumn Header="Warehouse" Binding="{Binding WarehouseName}"/>
+                <DataGridTextColumn Header="Supplier" Binding="{Binding ProductName}"/>
+                <DataGridTextColumn Header="Delivery date" Binding="{Binding WarehouseName}"/>
+                <DataGridTextColumn Header="Product" Binding="{Binding WarehouseName}"/>
                 <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
@@ -48,7 +49,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="Refresh Stock Level" Margin="10,2,10,2"/>
+            <Button Grid.Column="0" Content="Refresh Deliveries to Warehouse" Margin="10,2,10,2"/>
         </Grid>
     </Grid>
 </UserControl>

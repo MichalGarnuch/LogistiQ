@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="LogistiQ.Views.BusinessLogicView.WarehouseOverviewView"
+﻿<UserControl x:Class="LogistiQ.Views.BusinessLogicView.OrderRecordView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -13,20 +13,22 @@
             <RowDefinition Height="110"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Content="PRZEGLĄD STANÓW MAGAZYNOWYCH" Margin="0" HorizontalAlignment="Center"/>
+        <Label Grid.Row="0" Content="PRZEGLĄD ZAMÓWIEŃ KLIENTÓW" Margin="0" HorizontalAlignment="Center"/>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" Content="Select Warehouse:" Margin="40,0,0,0"/>
+            <Label Grid.Column="0" Content="Select Customer:" Margin="40,0,0,0"/>
             <ComboBox Grid.Column="1" Margin="0,2,2,2"/>
         </Grid>
         <DataGrid Grid.Row="2" AutoGenerateColumns="False" ItemsSource="{Binding StockList}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Product" Binding="{Binding ProductName}"/>
-                <DataGridTextColumn Header="Warehouse" Binding="{Binding WarehouseName}"/>
-                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}">
+                <DataGridTextColumn Header="Customer" Binding="{Binding xxx}"/>
+                <DataGridTextColumn Header="Order date" Binding="{Binding xxx}"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding xxx}"/>
+                <DataGridTextColumn Header="Product" Binding="{Binding xxx}"/>
+                <DataGridTextColumn Header="Quantity" Binding="{Binding xxx}">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="Foreground" Value="Black"/>
@@ -48,7 +50,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="Refresh Stock Level" Margin="10,2,10,2"/>
+            <Button Grid.Column="0" Content="Refresh Order to Customer" Margin="10,2,10,2"/>
         </Grid>
     </Grid>
 </UserControl>

@@ -58,6 +58,15 @@ namespace LogistiQ.ViewModels.BaseWorkspace
             return new List<CommandViewModel>
             {
                 new CommandViewModel(
+                    "Overview",
+                    new BaseCommand(() => this.CreateView(new WarehouseOverviewViewModel()))),
+                new CommandViewModel(
+                    "DeliverRecord",
+                    new BaseCommand(() => this.CreateView(new DeliveryRecordViewModel()))),
+                new CommandViewModel(
+                    "OrderRecord",
+                    new BaseCommand(() => this.CreateView(new OrderRecordViewModel()))),
+                new CommandViewModel(
                     "Products",
                     new BaseCommand(() => this.ShowAllView(new AllProductsViewModel()))), 
                 new CommandViewModel(
@@ -161,10 +170,8 @@ namespace LogistiQ.ViewModels.BaseWorkspace
                     new BaseCommand(() => this.ShowAllView(new AllWarehousesViewModel()))), 
                 new CommandViewModel(
                     "Warehouse",
-                    new BaseCommand(() => this.CreateView(new NewWarehouseViewModel()))),
-                new CommandViewModel(
-                    "Overview",
-                    new BaseCommand(() => this.CreateView(new WarehouseOverviewViewModel())))
+                    new BaseCommand(() => this.CreateView(new NewWarehouseViewModel())))
+                
             };
         }
         #endregion
