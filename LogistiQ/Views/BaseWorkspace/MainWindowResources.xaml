@@ -31,7 +31,9 @@
                     xmlns:vm_suppliers="clr-namespace:LogistiQ.ViewModels.Suppliers"
                     xmlns:vw_suppliers="clr-namespace:LogistiQ.Views.Suppliers"
                     xmlns:vm_warehouses="clr-namespace:LogistiQ.ViewModels.Warehouses"
-                    xmlns:vw_warehouses="clr-namespace:LogistiQ.Views.Warehouses">
+                    xmlns:vw_warehouses="clr-namespace:LogistiQ.Views.Warehouses"
+                    xmlns:vm_warehouseoverview="clr-namespace:LogistiQ.ViewModels.BusinessLogicViewModel"
+                    xmlns:vw_warehouseoverview="clr-namespace:LogistiQ.Views.BusinessLogicView">
 
     <DataTemplate DataType="{x:Type vm_products:AllProductsViewModel}">
         <vw_products:AllProductsView/>
@@ -138,6 +140,10 @@
     </DataTemplate>
     <DataTemplate DataType="{x:Type vm_warehouses:NewWarehouseViewModel}">
         <vw_warehouses:NewWarehouseView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm_warehouseoverview:WarehouseOverviewViewModel}">
+        <vw_warehouseoverview:WarehouseOverviewView/>
     </DataTemplate>
 
 

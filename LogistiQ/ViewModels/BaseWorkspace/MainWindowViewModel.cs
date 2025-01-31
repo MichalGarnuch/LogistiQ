@@ -25,6 +25,7 @@ using LogistiQ.ViewModels.Warehouses;
 using LogistiQ.ViewModels.BaseWorkspace;
 using LogistiQ.ViewModels.Discounts;
 using LogistiQ.ViewModels.Documents;
+using LogistiQ.ViewModels.BusinessLogicViewModel;
 
 namespace LogistiQ.ViewModels.BaseWorkspace 
 {
@@ -160,7 +161,10 @@ namespace LogistiQ.ViewModels.BaseWorkspace
                     new BaseCommand(() => this.ShowAllView(new AllWarehousesViewModel()))), 
                 new CommandViewModel(
                     "Warehouse",
-                    new BaseCommand(() => this.CreateView(new NewWarehouseViewModel())))
+                    new BaseCommand(() => this.CreateView(new NewWarehouseViewModel()))),
+                new CommandViewModel(
+                    "Overview",
+                    new BaseCommand(() => this.CreateView(new WarehouseOverviewViewModel())))
             };
         }
         #endregion

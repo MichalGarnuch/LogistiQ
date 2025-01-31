@@ -183,6 +183,7 @@
     <Compile Include="ViewModels\BaseWorkspace\BaseViewModel.cs" />
     <Compile Include="ViewModels\BaseWorkspace\CommandViewModel.cs" />
     <Compile Include="ViewModels\BaseWorkspace\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\BusinessLogicViewModel\WarehouseOverviewViewModel.cs" />
     <Compile Include="ViewModels\Categories\AllCategoriesViewModel.cs" />
     <Compile Include="ViewModels\Categories\NewCategoryViewModel.cs" />
     <Compile Include="ViewModels\Customers\AllCustomersViewModel.cs" />
