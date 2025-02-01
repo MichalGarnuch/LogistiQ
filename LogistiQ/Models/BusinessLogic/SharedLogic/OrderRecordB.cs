@@ -1,5 +1,7 @@
 ﻿using LogistiQ.Models.BusinessLogic.BaseWorkspace;
 using LogistiQ.Models.Entities;
+using LogistiQ.Models.EntitiesForView;
+using LogistiQ.Models.EntitiesForView.BaseWorkspace;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,17 +18,29 @@ namespace LogistiQ.Models.BusinessLogic.SharedLogic
         #endregion
 
         #region Funkcje biznesowe
-        // Funkcja zwraca łączną wartość zamówień danego klienta w podanym okresie
-        public decimal GetTotalOrderValue(int customerId, DateTime dateFrom, DateTime dateTo)
+        public IQueryable<KeyAndValue> GetCustomerKeyAndValueItems()
         {
-            return
-                (
-                    from order in db.Orders
-                    where order.CustomerID == customerId &&
-                          order.OrderDate >= dateFrom &&
-                          order.OrderDate <= dateTo
-                    select order.Total ?? 0 // Poprawka: jeśli Total jest NULL, zwróci 0
-                ).Sum();
+            return (from customer in db.Customers
+                    select new KeyAndValue
+                    {
+                        Key = customer.CustomerID,
+                        Value = customer.FirstName + " " + customer.LastName + " | " + customer.NIP
+                    }).ToList().AsQueryable();
+        }
+
+        public List<OrderRecordForAllView> GetOrdersByCustomer(int customerId)
+        {
+            return (from order in db.Orders
+                    where order.CustomerID == customerId
+                    select new OrderRecordForAllView
+                    {
+                        OrderID = order.OrderID,
+                        CustomerName = order.Customers.FirstName + " " + order.Customers.LastName,
+                        OrderDate = order.OrderDate ?? DateTime.MinValue,
+                        Status = order.Status,
+                        ProductName = order.OrderDetails.FirstOrDefault().Products.Name,
+                        Quantity = order.OrderDetails.FirstOrDefault().Quantity
+                    }).ToList();
         }
         #endregion
     }

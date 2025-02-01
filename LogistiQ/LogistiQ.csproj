@@ -97,6 +97,7 @@
     <Compile Include="Models\EntitiesForView\InvoiceForAllView.cs" />
     <Compile Include="Models\EntitiesForView\OrderDetailForAllView.cs" />
     <Compile Include="Models\EntitiesForView\OrderForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\OrderRecordForAllView.cs" />
     <Compile Include="Models\EntitiesForView\PaymentForAllView.cs" />
     <Compile Include="Models\EntitiesForView\ProductForAllView.cs" />
     <Compile Include="Models\EntitiesForView\ReturnForAllView.cs" />

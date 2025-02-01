@@ -5,12 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LogistiQ.Views.BusinessLogicView"
              mc:Ignorable="d" 
-             d:DesignHeight="200" d:DesignWidth="800">
+             d:DesignHeight="500" d:DesignWidth="800">
+
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="110"/>
+            <RowDefinition Height="410"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Content="PRZEGLĄD ZAMÓWIEŃ KLIENTÓW" Margin="0" HorizontalAlignment="Center"/>
@@ -20,37 +21,23 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Content="Select Customer:" Margin="40,0,0,0"/>
-            <ComboBox Grid.Column="1" Margin="0,2,2,2"/>
+            <ComboBox Grid.Column="1" Margin="0,2,2,2"
+                      ItemsSource="{Binding CustomersList}"
+                      DisplayMemberPath="Value"
+                      SelectedValuePath="Key"
+                      SelectedValue="{Binding SelectedCustomerId, Mode=TwoWay}"/>
         </Grid>
-        <DataGrid Grid.Row="2" AutoGenerateColumns="False" ItemsSource="{Binding StockList}">
+        <DataGrid Grid.Row="2" AutoGenerateColumns="False" ItemsSource="{Binding List}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Customer" Binding="{Binding xxx}"/>
-                <DataGridTextColumn Header="Order date" Binding="{Binding xxx}"/>
-                <DataGridTextColumn Header="Status" Binding="{Binding xxx}"/>
-                <DataGridTextColumn Header="Product" Binding="{Binding xxx}"/>
-                <DataGridTextColumn Header="Quantity" Binding="{Binding xxx}">
-                    <DataGridTextColumn.ElementStyle>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="Foreground" Value="Black"/>
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding Quantity}" Value="0">
-                                    <Setter Property="Foreground" Value="Red"/>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding Quantity}" Value="5">
-                                    <Setter Property="Foreground" Value="Orange"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
+                <DataGridTextColumn Header="Customer" Binding="{Binding CustomerName}"/>
+                <DataGridTextColumn Header="Order date" Binding="{Binding OrderDate}"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
+                <DataGridTextColumn Header="Product" Binding="{Binding ProductName}"/>
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Grid Grid.Row="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="Refresh Order to Customer" Margin="10,2,10,2"/>
+            <Button Content="Refresh Orders" Margin="10,2,10,2" Command="{Binding RefreshCommand}"/>
         </Grid>
     </Grid>
 </UserControl>
