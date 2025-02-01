@@ -36,6 +36,7 @@
                 <DataGridTextColumn Header="Supplier" Binding="{Binding SupplierName}"/>
                 <DataGridTextColumn Header="Delivery date" Binding="{Binding DeliveryDate, StringFormat=d}"/>
                 <DataGridTextColumn Header="Product" Binding="{Binding ProductName}"/>
+                <DataGridTextColumn Header="Unit Price" Binding="{Binding UnitPrice, StringFormat=C}"/>
                 <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">

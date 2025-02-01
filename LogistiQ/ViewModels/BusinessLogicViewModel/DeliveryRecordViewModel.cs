@@ -98,10 +98,13 @@ namespace LogistiQ.ViewModels.BusinessLogicViewModel
                 List = new ObservableCollection<DeliveryRecordForAllView>(
                     deliveryRecordB.GetDeliveriesByWarehouse(SelectedWarehouseId));
 
-                TotalDeliveryValue = deliveryRecordB.GetTotalDeliveryValue(SelectedWarehouseId);
-                AverageProductPrice = deliveryRecordB.GetAverageProductPrice(SelectedWarehouseId);
+                TotalDeliveryValue = List.Sum(x => x.TotalPrice); // ✅ Poprawne sumowanie wartości dostaw
+
+                int totalQuantity = List.Sum(x => x.Quantity); // ✅ Liczba wszystkich sztuk produktów
+                AverageProductPrice = totalQuantity > 0 ? List.Sum(x => x.UnitPrice * x.Quantity) / totalQuantity : 0; // ✅ Poprawiona średnia cena
             }
         }
+
 
         #endregion
 

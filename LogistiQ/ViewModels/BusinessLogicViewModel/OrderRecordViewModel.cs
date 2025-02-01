@@ -10,6 +10,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using LogistiQ.Models.EntitiesForView.BaseWorkspace;
+using System.IO;
+using Microsoft.Win32;
+
 
 namespace LogistiQ.ViewModels.BusinessLogicViewModel
 {
@@ -63,6 +66,65 @@ namespace LogistiQ.ViewModels.BusinessLogicViewModel
                 }
             }
         }
+        private decimal _totalOrderValue;
+        public decimal TotalOrderValue
+        {
+            get { return _totalOrderValue; }
+            set
+            {
+                _totalOrderValue = value;
+                OnPropertyChanged(() => TotalOrderValue);
+            }
+        }
+
+        private decimal _averageOrderValue;
+        public decimal AverageOrderValue
+        {
+            get { return _averageOrderValue; }
+            set
+            {
+                _averageOrderValue = value;
+                OnPropertyChanged(() => AverageOrderValue);
+            }
+        }
+
+        private void RefreshData()
+        {
+            List = new ObservableCollection<OrderRecordForAllView>(
+                orderRecordB.GetOrdersByCustomer(SelectedCustomerId)); // ✅ Używamy istniejącej metody!
+
+            TotalOrderValue = List.Sum(x => x.TotalOrderValue);
+            AverageOrderValue = List.Count > 0 ? List.Sum(x => x.TotalOrderValue) / List.Count : 0;
+        }
+
+
+        private void ExportToCsv()
+        {
+            if (List == null || !List.Any())
+                return;
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = "CSV files (*.csv)|*.csv",
+                Title = "Save Order Report",
+                FileName = "OrderReport.csv"
+            };
+
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                using (StreamWriter writer = new StreamWriter(saveFileDialog.FileName))
+                {
+                    writer.WriteLine("Order ID,Customer,Order Date,Status,Total Order Value,Payment Status,Product,Quantity");
+
+                    foreach (var item in List)
+                    {
+                        writer.WriteLine($"{item.OrderID},{item.CustomerName},{item.OrderDate},{item.Status},{item.TotalOrderValue},{item.PaymentStatus},{item.ProductName},{item.Quantity}");
+                    }
+                }
+            }
+        }
+
+
         #endregion
 
         #region Sortowanie i wyszukiwanie

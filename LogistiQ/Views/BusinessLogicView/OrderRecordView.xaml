@@ -5,16 +5,19 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LogistiQ.Views.BusinessLogicView"
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="800">
+             d:DesignHeight="310" d:DesignWidth="800">
 
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="410"/>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="110"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Content="PRZEGLĄD ZAMÓWIEŃ KLIENTÓW" Margin="0" HorizontalAlignment="Center"/>
+
+        <Label Grid.Row="0" Content="PRZEGLĄD ZAMÓWIEŃ KLIENTÓW" HorizontalAlignment="Center"/>
+
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -27,17 +30,35 @@
                       SelectedValuePath="Key"
                       SelectedValue="{Binding SelectedCustomerId, Mode=TwoWay}"/>
         </Grid>
+
         <DataGrid Grid.Row="2" AutoGenerateColumns="False" ItemsSource="{Binding List}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Customer" Binding="{Binding CustomerName}"/>
-                <DataGridTextColumn Header="Order date" Binding="{Binding OrderDate}"/>
+                <DataGridTextColumn Header="Order Date" Binding="{Binding OrderDate, StringFormat=d}"/>
                 <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
-                <DataGridTextColumn Header="Product" Binding="{Binding ProductName}"/>
+                <DataGridTextColumn Header="Unit Price" Binding="{Binding UnitPrice, StringFormat=C}"/>
                 <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
+                <DataGridTextColumn Header="Total Order Value" Binding="{Binding TotalOrderValue, StringFormat=C}"/>
+                <DataGridTextColumn Header="Payment Status" Binding="{Binding PaymentStatus}"/>
+                <DataGridTextColumn Header="Product" Binding="{Binding ProductName}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Grid Grid.Row="3">
-            <Button Content="Refresh Orders" Margin="10,2,10,2" Command="{Binding RefreshCommand}"/>
+
+        <!-- Wyświetlanie podsumowań wartości zamówień -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="Total Order Value: " FontWeight="Bold"/>
+            <TextBlock Text="{Binding TotalOrderValue, StringFormat=C}" Foreground="Green" />
+            <TextBlock Text=" | Average Order Value: " FontWeight="Bold" Margin="10,0,0,0"/>
+            <TextBlock Text="{Binding AverageOrderValue, StringFormat=C}" Foreground="Blue" />
+        </StackPanel>
+
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Refresh Orders" Command="{Binding RefreshCommand}" Margin="10,2,10,2"/>
+            <Button Grid.Column="1" Content="Export to CSV" Command="{Binding ExportToCsvCommand}" Margin="10,2,10,2"/>
         </Grid>
     </Grid>
 </UserControl>

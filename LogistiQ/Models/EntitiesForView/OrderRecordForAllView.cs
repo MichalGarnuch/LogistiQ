@@ -12,7 +12,11 @@ namespace LogistiQ.Models.EntitiesForView
         public string CustomerName { get; set; }
         public DateTime OrderDate { get; set; }
         public string Status { get; set; }
-        public string ProductName { get; set; }
+        public decimal UnitPrice { get; set; } // Nowe pole
         public int Quantity { get; set; }
+        public decimal TotalOrderValue { get; set; }
+        public string PaymentStatus { get; set; }
+        public string ProductName { get; set; }
     }
+
 }
