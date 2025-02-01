@@ -35,11 +35,17 @@
                         <Style TargetType="TextBlock">
                             <Setter Property="Foreground" Value="Black"/>
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding Quantity}" Value="20">
+                                <DataTrigger Binding="{Binding Quantity}" Value="30">
                                     <Setter Property="Foreground" Value="Red"/>
                                 </DataTrigger>
-                                <DataTrigger Binding="{Binding Quantity}" Value="50">
+                                <DataTrigger Binding="{Binding Quantity}" Value="40">
                                     <Setter Property="Foreground" Value="Orange"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Quantity}" Value="50">
+                                    <Setter Property="Foreground" Value="Yellow"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Quantity}" Value="60">
+                                    <Setter Property="Foreground" Value="Green"/>
                                 </DataTrigger>
                             </Style.Triggers>
                         </Style>
