@@ -5,12 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LogistiQ.Views.BusinessLogicView"
              mc:Ignorable="d" 
-             d:DesignHeight="200" d:DesignWidth="800">
+             d:DesignHeight="500" d:DesignWidth="800">
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="110"/>
+            <RowDefinition Height="410"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Content="PRZEGLĄD STANÓW MAGAZYNOWYCH" Margin="0" HorizontalAlignment="Center"/>
@@ -20,9 +20,13 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Content="Select Warehouse:" Margin="40,0,0,0"/>
-            <ComboBox Grid.Column="1" Margin="0,2,2,2"/>
+            <ComboBox Grid.Column="1" Margin="0,2,2,2"
+                      ItemsSource="{Binding WarehousesList}"
+                      DisplayMemberPath="Value"
+                      SelectedValuePath="Key"
+                      SelectedValue="{Binding SelectedWarehouseId, Mode=TwoWay}"/>
         </Grid>
-        <DataGrid Grid.Row="2" AutoGenerateColumns="False" ItemsSource="{Binding StockList}">
+        <DataGrid Grid.Row="2" AutoGenerateColumns="False" ItemsSource="{Binding List}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Product" Binding="{Binding ProductName}"/>
                 <DataGridTextColumn Header="Warehouse" Binding="{Binding WarehouseName}"/>
@@ -31,10 +35,10 @@
                         <Style TargetType="TextBlock">
                             <Setter Property="Foreground" Value="Black"/>
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding Quantity}" Value="0">
+                                <DataTrigger Binding="{Binding Quantity}" Value="20">
                                     <Setter Property="Foreground" Value="Red"/>
                                 </DataTrigger>
-                                <DataTrigger Binding="{Binding Quantity}" Value="5">
+                                <DataTrigger Binding="{Binding Quantity}" Value="50">
                                     <Setter Property="Foreground" Value="Orange"/>
                                 </DataTrigger>
                             </Style.Triggers>
@@ -48,7 +52,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="Refresh Stock Level" Margin="10,2,10,2"/>
+            <Button Grid.Column="0" Content="Refresh Stock Level" Margin="10,2,10,2" 
+                    Command="{Binding RefreshStockCommand}"/>
         </Grid>
     </Grid>
 </UserControl>
