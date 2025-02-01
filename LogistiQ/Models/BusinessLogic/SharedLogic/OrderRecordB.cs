@@ -16,6 +16,7 @@ namespace LogistiQ.Models.BusinessLogic.SharedLogic
         #endregion
 
         #region Funkcje biznesowe
+
         public IQueryable<KeyAndValue> GetCustomerKeyAndValueItems()
         {
             return (from customer in db.Customers
@@ -43,16 +44,43 @@ namespace LogistiQ.Models.BusinessLogic.SharedLogic
                         .Select(grouped => new OrderRecordForAllView
                         {
                             OrderID = grouped.Key,
-                            CustomerName = grouped.FirstOrDefault()?.customer?.FirstName + " " + grouped.FirstOrDefault()?.customer?.LastName ?? "Unknown",
+                            CustomerName = $"{grouped.FirstOrDefault()?.customer?.FirstName} {grouped.FirstOrDefault()?.customer?.LastName}" ?? "Unknown",
                             OrderDate = grouped.FirstOrDefault()?.order?.OrderDate ?? DateTime.MinValue,
                             Status = grouped.FirstOrDefault()?.order?.Status ?? "Unknown",
-                            UnitPrice = grouped.FirstOrDefault()?.orderDetail?.UnitPrice ?? 0m, // Nowe pole
+
+                            // 🔥 Poprawione obliczanie wartości zamówienia
+                            TotalOrderValue = grouped.Sum(x => (x.orderDetail?.UnitPrice ?? 0m) * (x.orderDetail?.Quantity ?? 0)),
+
+                            // 🔥 Ilość produktów w zamówieniu
                             Quantity = grouped.Sum(x => x.orderDetail?.Quantity ?? 0),
-                            TotalOrderValue = grouped.Sum(x => (x.orderDetail?.UnitPrice ?? 0m) * (decimal)(x.orderDetail?.Quantity ?? 0)),
-                            PaymentStatus = grouped.Sum(x => x.payment?.Amount ?? 0) >= grouped.Sum(x => (x.orderDetail?.UnitPrice ?? 0m) * (decimal)(x.orderDetail?.Quantity ?? 0))
+
+                            // 🔥 **Nowa logika UnitPrice – średnia cena jednostkowa!**
+                            UnitPrice = grouped.Sum(x => (x.orderDetail?.Quantity ?? 0)) > 0
+                                        ? grouped.Sum(x => (x.orderDetail?.UnitPrice ?? 0m) * (x.orderDetail?.Quantity ?? 0)) / grouped.Sum(x => x.orderDetail?.Quantity ?? 0)
+                                        : 0m,
+
+                            // 🔥 Status płatności
+                            PaymentStatus = grouped.Sum(x => x.payment?.Amount ?? 0) >= grouped.Sum(x => (x.orderDetail?.UnitPrice ?? 0m) * (x.orderDetail?.Quantity ?? 0))
                                             ? "Paid" : "Unpaid",
-                            ProductName = grouped.FirstOrDefault(x => x.product != null)?.product?.Name ?? "No Product"
+
+                            // 🔥 Obsługa wyświetlania nazwy produktu
+                            ProductName = grouped.Select(x => x.product?.Name).Distinct().Count() > 1
+                                          ? "Multiple Products"
+                                          : grouped.FirstOrDefault(x => x.product != null)?.product?.Name ?? "No Product"
                         }).ToList();
+        }
+
+        public decimal GetTotalOrderValue(int customerId)
+        {
+            return GetOrdersByCustomer(customerId).Sum(x => x.TotalOrderValue);
+        }
+
+        // 🔥 **Nowa logika dla AverageOrderValue – Średnia ważona**
+        public decimal GetAverageOrderValue(int customerId)
+        {
+            var orders = GetOrdersByCustomer(customerId);
+            var totalQuantity = orders.Sum(x => x.Quantity);
+            return totalQuantity > 0 ? orders.Sum(x => x.TotalOrderValue) / totalQuantity : 0m;
         }
 
         #endregion

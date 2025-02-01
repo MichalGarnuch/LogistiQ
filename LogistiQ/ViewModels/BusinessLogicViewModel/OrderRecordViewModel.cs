@@ -1,7 +1,6 @@
 ﻿using LogistiQ.Helper;
 using LogistiQ.Models.BusinessLogic.SharedLogic;
 using LogistiQ.Models.BusinessLogic;
-using LogistiQ.Models.Entities;
 using LogistiQ.Models.EntitiesForView;
 using LogistiQ.ViewModels.BaseWorkspace;
 using System;
@@ -12,7 +11,6 @@ using System.Windows.Input;
 using LogistiQ.Models.EntitiesForView.BaseWorkspace;
 using System.IO;
 using Microsoft.Win32;
-
 
 namespace LogistiQ.ViewModels.BusinessLogicViewModel
 {
@@ -36,6 +34,7 @@ namespace LogistiQ.ViewModels.BusinessLogicViewModel
             Load();
 
             RefreshCommand = new BaseCommand(Load);
+            ExportToCsvCommand = new BaseCommand(ExportToCsv);
         }
         #endregion
 
@@ -66,6 +65,7 @@ namespace LogistiQ.ViewModels.BusinessLogicViewModel
                 }
             }
         }
+
         private decimal _totalOrderValue;
         public decimal TotalOrderValue
         {
@@ -88,15 +88,22 @@ namespace LogistiQ.ViewModels.BusinessLogicViewModel
             }
         }
 
-        private void RefreshData()
+        #endregion
+
+        #region Metody pomocnicze
+
+        public override void Load()
         {
-            List = new ObservableCollection<OrderRecordForAllView>(
-                orderRecordB.GetOrdersByCustomer(SelectedCustomerId)); // ✅ Używamy istniejącej metody!
+            if (SelectedCustomerId != 0)
+            {
+                List = new ObservableCollection<OrderRecordForAllView>(
+                    orderRecordB.GetOrdersByCustomer(SelectedCustomerId));
 
-            TotalOrderValue = List.Sum(x => x.TotalOrderValue);
-            AverageOrderValue = List.Count > 0 ? List.Sum(x => x.TotalOrderValue) / List.Count : 0;
+                // Przeliczenie wartości zamówienia i średniej wartości
+                TotalOrderValue = orderRecordB.GetTotalOrderValue(SelectedCustomerId);
+                AverageOrderValue = orderRecordB.GetAverageOrderValue(SelectedCustomerId);
+            }
         }
-
 
         private void ExportToCsv()
         {
@@ -123,7 +130,6 @@ namespace LogistiQ.ViewModels.BusinessLogicViewModel
                 }
             }
         }
-
 
         #endregion
 
@@ -159,26 +165,17 @@ namespace LogistiQ.ViewModels.BusinessLogicViewModel
             if (FindField == "product")
                 List = new ObservableCollection<OrderRecordForAllView>(List.Where(item => item.ProductName != null && item.ProductName.StartsWith(FindTextBox)));
         }
+
         #endregion
 
         #region Komendy
         public ICommand RefreshCommand { get; set; }
+        public ICommand ExportToCsvCommand { get; set; }
         #endregion
-
-        #region Metody pomocnicze
-        public override void Load()
-        {
-            if (SelectedCustomerId != 0)
-            {
-                List = new ObservableCollection<OrderRecordForAllView>(
-                    orderRecordB.GetOrdersByCustomer(SelectedCustomerId));
-            }
-        }
 
         public override WorkspaceViewModel CreateNewViewModel()
         {
             throw new NotImplementedException();
         }
-        #endregion
     }
 }

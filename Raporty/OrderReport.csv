@@ -1,0 +1,3 @@
+Order ID,Customer,Order Date,Status,Total Order Value,Payment Status,Product,Quantity
+5,Marek Kamiński,06.11.2024 00:00:00,Pending,1700.00,Paid,Multiple Products,2
+21,Marek Kamiński,04.11.2024 00:00:00,Completed,0,Paid,No Product,0
