@@ -1,10 +1,9 @@
 ﻿using LogistiQ.Models.BusinessLogic.BaseWorkspace;
 using LogistiQ.Models.Entities;
+using LogistiQ.Models.EntitiesForView;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LogistiQ.Models.BusinessLogic.SharedLogic
 {
@@ -16,14 +15,26 @@ namespace LogistiQ.Models.BusinessLogic.SharedLogic
         #endregion
 
         #region Funkcje biznesowe
-        // Funkcja zwraca ilość dostaw w zadanym przedziale czasu dla magazynu
-        public int GetDeliveriesCount(int warehouseId, DateTime dateFrom, DateTime dateTo)
+
+        // Pobranie dostaw dla danego magazynu
+        public List<DeliveryRecordForAllView> GetDeliveriesByWarehouse(int warehouseId)
         {
-            return db.Deliveries.Count(delivery =>
-                delivery.WarehouseID == warehouseId &&
-                delivery.DeliveryDate >= dateFrom &&
-                delivery.DeliveryDate <= dateTo);
+            return (from delivery in db.Deliveries
+                    where delivery.WarehouseID == warehouseId
+                    from detail in db.DeliveryDetails
+                    where detail.DeliveryID == delivery.DeliveryID
+                    select new DeliveryRecordForAllView
+                    {
+                        DeliveryID = delivery.DeliveryID,
+                        SupplierName = delivery.Suppliers.Name,
+                        DeliveryDate = delivery.DeliveryDate,
+                        ProductName = detail.Products.Name,
+                        Quantity = detail.Quantity,
+                        UnitPrice = detail.UnitPrice,
+                        WarehouseName = delivery.Warehouses.Name
+                    }).ToList();
         }
+
         #endregion
     }
 }

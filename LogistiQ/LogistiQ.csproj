@@ -90,6 +90,7 @@
     <Compile Include="Models\EntitiesForView\CategoryForAllView.cs" />
     <Compile Include="Models\EntitiesForView\DeliveryDetailForAllView.cs" />
     <Compile Include="Models\EntitiesForView\DeliveryForAllView.cs" />
+    <Compile Include="Models\EntitiesForView\DeliveryRecordForAllView.cs" />
     <Compile Include="Models\EntitiesForView\DiscountForAllView.cs" />
     <Compile Include="Models\EntitiesForView\DocumentForAllView.cs" />
     <Compile Include="Models\EntitiesForView\EmployeeForAllView.cs" />
