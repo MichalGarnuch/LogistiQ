@@ -34,6 +34,22 @@ namespace LogistiQ.Models.BusinessLogic.SharedLogic
                         WarehouseName = delivery.Warehouses.Name
                     }).ToList();
         }
+        public decimal GetTotalDeliveryValue(int warehouseId)
+        {
+            return db.DeliveryDetails
+                .Where(detail => detail.Deliveries.WarehouseID == warehouseId)
+                .Sum(detail => detail.Quantity * detail.UnitPrice);
+        }
+
+        public decimal GetAverageProductPrice(int warehouseId)
+        {
+            var prices = db.DeliveryDetails
+                .Where(detail => detail.Deliveries.WarehouseID == warehouseId)
+                .Select(detail => detail.UnitPrice);
+
+            return prices.Any() ? prices.Average() : 0;
+        }
+
 
         #endregion
     }

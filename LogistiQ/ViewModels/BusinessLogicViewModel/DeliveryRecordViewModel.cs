@@ -8,6 +8,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using LogistiQ.Models.EntitiesForView.BaseWorkspace;
+using System.IO;
+using Microsoft.Win32;
 
 namespace LogistiQ.ViewModels.BusinessLogicViewModel
 {
@@ -28,9 +30,10 @@ namespace LogistiQ.ViewModels.BusinessLogicViewModel
             WarehousesList = new ObservableCollection<KeyAndValue>(deliveryB.GetWarehouseKeyAndValueItems());
             SelectedWarehouseId = WarehousesList.Any() ? WarehousesList.First().Key : 0;
 
-            Load();
+            RefreshCommand = new BaseCommand(RefreshData);
+            ExportToCsvCommand = new BaseCommand(ExportToCsv);
 
-            RefreshCommand = new BaseCommand(Load);
+            RefreshData();
         }
         #endregion
 
@@ -57,10 +60,49 @@ namespace LogistiQ.ViewModels.BusinessLogicViewModel
                 {
                     _selectedWarehouseId = value;
                     OnPropertyChanged(() => SelectedWarehouseId);
-                    Load();
+                    RefreshData();
                 }
             }
         }
+
+        private decimal _totalDeliveryValue;
+        public decimal TotalDeliveryValue
+        {
+            get { return _totalDeliveryValue; }
+            set
+            {
+                _totalDeliveryValue = value;
+                OnPropertyChanged(() => TotalDeliveryValue);
+            }
+        }
+
+        private decimal _averageProductPrice;
+        public decimal AverageProductPrice
+        {
+            get { return _averageProductPrice; }
+            set
+            {
+                _averageProductPrice = value;
+                OnPropertyChanged(() => AverageProductPrice);
+            }
+        }
+
+        #endregion
+
+        #region Metody biznesowe
+
+        private void RefreshData()
+        {
+            if (SelectedWarehouseId != 0)
+            {
+                List = new ObservableCollection<DeliveryRecordForAllView>(
+                    deliveryRecordB.GetDeliveriesByWarehouse(SelectedWarehouseId));
+
+                TotalDeliveryValue = deliveryRecordB.GetTotalDeliveryValue(SelectedWarehouseId);
+                AverageProductPrice = deliveryRecordB.GetAverageProductPrice(SelectedWarehouseId);
+            }
+        }
+
         #endregion
 
         #region Sortowanie i wyszukiwanie
@@ -89,7 +131,7 @@ namespace LogistiQ.ViewModels.BusinessLogicViewModel
 
         public override void Find()
         {
-            Load();
+            RefreshData();
             if (FindField == "supplier")
                 List = new ObservableCollection<DeliveryRecordForAllView>(List.Where(item => item.SupplierName != null && item.SupplierName.StartsWith(FindTextBox)));
             if (FindField == "product")
@@ -99,23 +141,52 @@ namespace LogistiQ.ViewModels.BusinessLogicViewModel
         #endregion
 
         #region Komendy
-        public ICommand RefreshCommand { get; set; }
+        public ICommand RefreshCommand { get; }
+        public ICommand ExportToCsvCommand { get; }
+        #endregion
+
+        #region Eksport CSV
+
+        private void ExportToCsv()
+        {
+            if (List == null || !List.Any())
+                return;
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = "CSV files (*.csv)|*.csv",
+                Title = "Save Delivery Report",
+                FileName = "DeliveryReport.csv"
+            };
+
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                using (StreamWriter writer = new StreamWriter(saveFileDialog.FileName))
+                {
+                    writer.WriteLine("Delivery ID,Supplier,Date,Product,Quantity,Unit Price,Total Price");
+
+                    foreach (var item in List)
+                    {
+                        writer.WriteLine($"{item.DeliveryID},{item.SupplierName},{item.DeliveryDate},{item.ProductName},{item.Quantity},{item.UnitPrice},{item.Quantity * item.UnitPrice}");
+                    }
+                }
+            }
+        }
+
         #endregion
 
         #region Metody pomocnicze
+
         public override void Load()
         {
-            if (SelectedWarehouseId != 0)
-            {
-                List = new ObservableCollection<DeliveryRecordForAllView>(
-                    deliveryRecordB.GetDeliveriesByWarehouse(SelectedWarehouseId));
-            }
+            // Niepotrzebne tutaj, RefreshData() robi całą robotę
         }
 
         public override WorkspaceViewModel CreateNewViewModel()
         {
             throw new System.NotImplementedException();
         }
+
         #endregion
     }
 }
