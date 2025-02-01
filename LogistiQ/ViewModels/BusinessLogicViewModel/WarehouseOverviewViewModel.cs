@@ -1,18 +1,15 @@
 ﻿using LogistiQ.Helper;
 using LogistiQ.Models.BusinessLogic.SharedLogic;
-using LogistiQ.Models.BusinessLogic;
-using LogistiQ.Models.Entities;
-using LogistiQ.Models.EntitiesForView.BaseWorkspace;
 using LogistiQ.Models.EntitiesForView;
 using LogistiQ.ViewModels.BaseWorkspace;
-using LogistiQ.ViewModels.BusinessLogicViewModel;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Collections.Generic;
+using System.IO;
+using Microsoft.Win32;
+using LogistiQ.Models.BusinessLogic;
+using LogistiQ.Models.EntitiesForView.BaseWorkspace;
 
 namespace LogistiQ.ViewModels.BusinessLogicViewModel
 {
@@ -33,9 +30,10 @@ namespace LogistiQ.ViewModels.BusinessLogicViewModel
             WarehousesList = new ObservableCollection<KeyAndValue>(warehouseB.GetWarehouseKeyAndValueItems());
             SelectedWarehouseId = WarehousesList.Any() ? WarehousesList.First().Key : 0;
 
-            Load();
+            RefreshStockCommand = new BaseCommand(Load);
+            ExportToCsvCommand = new BaseCommand(ExportToCsv);
 
-            RefreshCommand = new BaseCommand(Load);
+            Load();
         }
         #endregion
 
@@ -66,6 +64,56 @@ namespace LogistiQ.ViewModels.BusinessLogicViewModel
                 }
             }
         }
+
+        private decimal _totalStockValue;
+        public decimal TotalStockValue
+        {
+            get { return _totalStockValue; }
+            set
+            {
+                _totalStockValue = value;
+                OnPropertyChanged(() => TotalStockValue);
+            }
+        }
+
+        private decimal _averageStockPrice;
+        public decimal AverageStockPrice
+        {
+            get { return _averageStockPrice; }
+            set
+            {
+                _averageStockPrice = value;
+                OnPropertyChanged(() => AverageStockPrice);
+            }
+        }
+
+        private decimal _lastDeliveryValue;
+        public decimal LastDeliveryValue
+        {
+            get { return _lastDeliveryValue; }
+            set
+            {
+                _lastDeliveryValue = value;
+                OnPropertyChanged(() => LastDeliveryValue);
+            }
+        }
+
+        private decimal _averageDeliveryPrice;
+        public decimal AverageDeliveryPrice
+        {
+            get { return _averageDeliveryPrice; }
+            set
+            {
+                _averageDeliveryPrice = value;
+                OnPropertyChanged(() => AverageDeliveryPrice);
+            }
+        }
+
+        #endregion
+
+        #region Komendy
+        public ICommand RefreshStockCommand { get; set; }
+        public ICommand ExportToCsvCommand { get; set; }
         #endregion
 
         #region Sortowanie i wyszukiwanie
@@ -100,10 +148,6 @@ namespace LogistiQ.ViewModels.BusinessLogicViewModel
         }
         #endregion
 
-        #region Komendy
-        public ICommand RefreshCommand { get; set; }
-        #endregion
-
         #region Metody pomocnicze
         public override void Load()
         {
@@ -111,12 +155,55 @@ namespace LogistiQ.ViewModels.BusinessLogicViewModel
             {
                 List = new ObservableCollection<WarehouseOverviewForAllView>(
                     warehouseOverviewB.GetWarehouseStock(SelectedWarehouseId));
+
+                TotalStockValue = List.Sum(x => x.TotalStockValue);
+                OnPropertyChanged(() => TotalStockValue);
+
+                int totalQuantity = List.Sum(x => x.Quantity);
+                AverageStockPrice = totalQuantity > 0 ? List.Sum(x => x.UnitPrice * x.Quantity) / totalQuantity : 0;
+                OnPropertyChanged(() => AverageStockPrice);
+
+                LastDeliveryValue = List.Sum(x => x.LastDeliveryValue);
+                OnPropertyChanged(() => LastDeliveryValue);
+
+                AverageDeliveryPrice = List.Average(x => x.AverageDeliveryPrice);
+                OnPropertyChanged(() => AverageDeliveryPrice); // ✅ To mogło być brakujące!
             }
         }
 
+
+
+        private void ExportToCsv()
+        {
+            if (List == null || !List.Any())
+                return;
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = "CSV files (*.csv)|*.csv",
+                Title = "Save Warehouse Overview Report",
+                FileName = "WarehouseOverviewReport.csv"
+            };
+
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                using (StreamWriter writer = new StreamWriter(saveFileDialog.FileName))
+                {
+                    writer.WriteLine("Product,Warehouse,Quantity,Unit Price,Total Stock Value,Last Delivery Value,Average Delivery Price");
+
+                    foreach (var item in List)
+                    {
+                        writer.WriteLine($"{item.ProductName},{item.WarehouseName},{item.Quantity},{item.UnitPrice},{item.TotalStockValue},{item.LastDeliveryValue},{item.AverageDeliveryPrice}");
+                    }
+                }
+            }
+        }
+        #endregion
+
+        #region **🔹 Brakująca Implementacja CreateNewViewModel()**
         public override WorkspaceViewModel CreateNewViewModel()
         {
-            throw new NotImplementedException();
+            return null; // 🔥 Nie tworzymy nowego widoku – WarehouseOverview to tylko podgląd
         }
         #endregion
     }

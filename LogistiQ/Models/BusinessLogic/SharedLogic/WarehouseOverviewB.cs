@@ -1,12 +1,8 @@
 ﻿using LogistiQ.Models.BusinessLogic.BaseWorkspace;
 using LogistiQ.Models.Entities;
-using LogistiQ.Models.EntitiesForView.BaseWorkspace;
 using LogistiQ.Models.EntitiesForView;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LogistiQ.Models.BusinessLogic.SharedLogic
 {
@@ -18,27 +14,27 @@ namespace LogistiQ.Models.BusinessLogic.SharedLogic
         #endregion
 
         #region Funkcje biznesowe
-        public IQueryable<KeyAndValue> GetWarehouseKeyAndValueItems()
-        {
-            return (from warehouse in db.Warehouses
-                    select new KeyAndValue
-                    {
-                        Key = warehouse.WarehouseID,
-                        Value = warehouse.Name + " - " + warehouse.Location
-                    }).ToList().AsQueryable();
-        }
 
         public List<WarehouseOverviewForAllView> GetWarehouseStock(int warehouseId)
         {
             return (from stock in db.StockLevels
+                    join product in db.Products on stock.ProductID equals product.ProductID
+                    join warehouse in db.Warehouses on stock.WarehouseID equals warehouse.WarehouseID
+                    join deliveryDetail in db.DeliveryDetails on stock.ProductID equals deliveryDetail.ProductID into deliveries
+                    from lastDelivery in deliveries.OrderByDescending(d => d.DeliveryID).Take(1).DefaultIfEmpty()
                     where stock.WarehouseID == warehouseId
                     select new WarehouseOverviewForAllView
                     {
-                        ProductName = stock.Products.Name,
-                        WarehouseName = stock.Warehouses.Name,
-                        Quantity = stock.Quantity
+                        ProductName = product.Name,
+                        WarehouseName = warehouse.Name,
+                        Quantity = stock.Quantity,
+                        UnitPrice = product.UnitPrice,
+                        TotalStockValue = stock.Quantity * product.UnitPrice,
+                        LastDeliveryValue = lastDelivery != null ? lastDelivery.Quantity * lastDelivery.UnitPrice : 0m,
+                        AverageDeliveryPrice = deliveries.Any() ? deliveries.Average(d => d.UnitPrice) : 0m
                     }).ToList();
         }
+
         #endregion
     }
 }
