@@ -128,8 +128,8 @@ namespace LogistiQ.ViewModels.Documents
         #region Helpers
         public override void Save()
         {
-            logistiQ_Entities.Documents.Add(item);//dodaje towar do lokalnej kolekcji
-            logistiQ_Entities.SaveChanges();//zapisuje zmiany dokonane w bazie danych
+            logistiQ_Entities.Documents.Add(item);
+            logistiQ_Entities.SaveChanges();
         }
 
         #endregion
@@ -137,7 +137,6 @@ namespace LogistiQ.ViewModels.Documents
         #region Validation
 
         public string Error => string.Empty;
-        // Słownik przechowujący komunikaty błędów dla każdej właściwości
         private readonly Dictionary<string, string> _validationMessages = new Dictionary<string, string>();
 
         public string this[string properties]
@@ -163,7 +162,6 @@ namespace LogistiQ.ViewModels.Documents
                     validateMessage = BusinessValidator.ValidateIsPricePositive(TotalValue);
                 }
 
-                // Aktualizujemy słownik błędów
                 if (!string.IsNullOrEmpty(validateMessage))
                 {
                     _validationMessages[properties] = validateMessage;
@@ -179,7 +177,6 @@ namespace LogistiQ.ViewModels.Documents
 
         public override bool IsValid()
         {
-            // Jeśli w słowniku nie ma błędów, wszystkie pola są poprawne
             return !_validationMessages.Any();
         }
 

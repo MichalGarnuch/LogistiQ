@@ -23,17 +23,15 @@ namespace LogistiQ.ViewModels.Discounts
         }
         public override WorkspaceViewModel CreateNewViewModel()
         {
-            return new NewDiscountViewModel(); // Zwracamy odpowiedni ViewModel
+            return new NewDiscountViewModel(); 
         }
         #endregion
 
         #region Sort And Find
-        //tu decydujemy po czym sortować do comboboxa
         public override List<string> GetComboboxSortList()
         {
             return new List<string> { "product name", "product type"};
         }
-        //tu decydujemy jak sortować
         public override void Sort()
         {
             if (SortField == "product name")
@@ -41,12 +39,10 @@ namespace LogistiQ.ViewModels.Discounts
             if (SortField == "product type")
                 List = new ObservableCollection<DiscountForAllView>(List.OrderBy(item => item.ProductType));
         }
-        //tu decydujemy po czym wyszukiwać
         public override List<string> GetComboboxFindList()
         {
             return new List<string> { "product name", "product type" };
         }
-        //tu decydujemy jak wyszukiwać
         public override void Find()
         {
             Load();

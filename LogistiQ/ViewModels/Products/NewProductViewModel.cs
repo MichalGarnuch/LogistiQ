@@ -25,7 +25,6 @@ namespace LogistiQ.ViewModels.Products
 
     #region Properties
 
-    //dla każdego pola na interfejsie tworzymy properties
     public int ProductID
     {
         get
@@ -124,7 +123,7 @@ namespace LogistiQ.ViewModels.Products
     }
 
         #endregion
-        //
+        
     #region PropertiesForCombobox
 
         public IQueryable<KeyAndValue> CategoryKeyAndValueItems
@@ -136,13 +135,13 @@ namespace LogistiQ.ViewModels.Products
             }
         }
         #endregion
-        //
+        
     #region Helpers
 
         public override void Save()
     {
-        logistiQ_Entities.Products.Add(item);//dodaje towar do lokalnej kolekcji
-        logistiQ_Entities.SaveChanges();//zapisuje zmiany dokonane w bazie danych
+        logistiQ_Entities.Products.Add(item);
+        logistiQ_Entities.SaveChanges();
     }
 
         #endregion
@@ -150,7 +149,6 @@ namespace LogistiQ.ViewModels.Products
     #region Validation
 
         public string Error => string.Empty;
-        // Słownik przechowujący komunikaty błędów dla każdej właściwości
         private readonly Dictionary<string, string> _validationMessages = new Dictionary<string, string>();
 
         public string this[string properties]
@@ -176,7 +174,6 @@ namespace LogistiQ.ViewModels.Products
                     validateMessage = StringValidator.ValidateIsNotEmpty(Brand);
                 }
 
-                // Aktualizujemy słownik błędów
                 if (!string.IsNullOrEmpty(validateMessage))
                 {
                     _validationMessages[properties] = validateMessage;
@@ -192,7 +189,6 @@ namespace LogistiQ.ViewModels.Products
 
         public override bool IsValid()
         {
-            // Jeśli w słowniku nie ma błędów, wszystkie pola są poprawne
             return !_validationMessages.Any();
         }
 

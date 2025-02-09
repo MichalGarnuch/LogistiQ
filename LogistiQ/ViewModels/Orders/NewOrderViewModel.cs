@@ -28,7 +28,6 @@ namespace LogistiQ.ViewModels.Orders
 
         #region Properties
 
-        //dla każdego pola na interfejsie tworzymy properties
         public int OrderID
         {
             get
@@ -108,8 +107,8 @@ namespace LogistiQ.ViewModels.Orders
         #region Helpers
         public override void Save()
         {
-            logistiQ_Entities.Orders.Add(item);//dodaje towar do lokalnej kolekcji
-            logistiQ_Entities.SaveChanges();//zapisuje zmiany dokonane w bazie danych
+            logistiQ_Entities.Orders.Add(item);
+            logistiQ_Entities.SaveChanges();
         }
 
         #endregion
@@ -117,7 +116,6 @@ namespace LogistiQ.ViewModels.Orders
         #region Validation
 
         public string Error => string.Empty;
-        // Słownik przechowujący komunikaty błędów dla każdej właściwości
         private readonly Dictionary<string, string> _validationMessages = new Dictionary<string, string>();
 
         public string this[string properties]
@@ -131,7 +129,6 @@ namespace LogistiQ.ViewModels.Orders
                     validateMessage = StringValidator.ValidateIsNotEmpty(CustomerID?.ToString());
                 }
 
-                // Aktualizujemy słownik błędów
                 if (!string.IsNullOrEmpty(validateMessage))
                 {
                     _validationMessages[properties] = validateMessage;
@@ -147,7 +144,6 @@ namespace LogistiQ.ViewModels.Orders
 
         public override bool IsValid()
         {
-            // Jeśli w słowniku nie ma błędów, wszystkie pola są poprawne
             return !_validationMessages.Any();
         }
 

@@ -8,7 +8,6 @@ namespace LogistiQ.Validators
 {
     public static class BusinessValidator
     {
-        //Sprawdź czy cena jest poprawna
         public static string ValidateIsPricePositive(decimal? price)
         {
             if (!price.HasValue)

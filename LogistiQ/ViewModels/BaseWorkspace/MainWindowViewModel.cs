@@ -185,8 +185,7 @@ namespace LogistiQ.ViewModels.BaseWorkspace
                 if (_Workspaces == null)
                 {
                     _Workspaces = new ObservableCollection<WorkspaceViewModel>();
-                    _Workspaces.CollectionChanged += this.OnWorkspacesChanged; // Subskrybuje zdarzenie
-                                                                               // zmiany w kolekcji
+                    _Workspaces.CollectionChanged += this.OnWorkspacesChanged; 
                 }
                 return _Workspaces;
             }

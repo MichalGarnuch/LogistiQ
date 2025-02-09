@@ -29,7 +29,6 @@ namespace LogistiQ.ViewModels.Invoices
         #endregion
 
         #region Sort And Find
-        //tu decydujemy po czym sortować do comboboxa
         public override List<string> GetComboboxSortList()
         {
             return new List<string> { "document number", "first name customer"};

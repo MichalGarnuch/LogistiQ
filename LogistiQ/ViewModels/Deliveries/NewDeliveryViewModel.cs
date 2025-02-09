@@ -27,7 +27,7 @@ namespace LogistiQ.ViewModels.Deliveries
 
         #region Properties
 
-        //dla każdego pola na interfejsie tworzymy properties
+       
         public int DeliveryID
         {
             get
@@ -125,8 +125,8 @@ namespace LogistiQ.ViewModels.Deliveries
         #region Helpers
         public override void Save()
         {
-            logistiQ_Entities.Deliveries.Add(item);//dodaje towar do lokalnej kolekcji
-            logistiQ_Entities.SaveChanges();//zapisuje zmiany dokonane w bazie danych
+            logistiQ_Entities.Deliveries.Add(item);
+            logistiQ_Entities.SaveChanges();
         }
 
         #endregion
@@ -134,7 +134,6 @@ namespace LogistiQ.ViewModels.Deliveries
         #region Validation
 
         public string Error => string.Empty;
-        // Słownik przechowujący komunikaty błędów dla każdej właściwości
         private readonly Dictionary<string, string> _validationMessages = new Dictionary<string, string>();
 
         public string this[string properties]
@@ -145,7 +144,6 @@ namespace LogistiQ.ViewModels.Deliveries
 
                 if (properties == nameof(SupplierID))
                 {
-                    // Walidacja, czy wybrano klienta
                     validateMessage = StringValidator.ValidateIsNotEmpty(SupplierID?.ToString());
                 }
                 else if (properties == nameof(Cost))
@@ -154,11 +152,9 @@ namespace LogistiQ.ViewModels.Deliveries
                 }
                 else if (properties == nameof(WarehouseID))
                 {
-                    // Walidacja, czy wybrano dokument
                     validateMessage = StringValidator.ValidateIsNotEmpty(WarehouseID?.ToString());
                 }
 
-                // Aktualizujemy słownik błędów
                 if (!string.IsNullOrEmpty(validateMessage))
                 {
                     _validationMessages[properties] = validateMessage;
@@ -174,7 +170,6 @@ namespace LogistiQ.ViewModels.Deliveries
 
         public override bool IsValid()
         {
-            // Jeśli w słowniku nie ma błędów, wszystkie pola są poprawne
             return !_validationMessages.Any();
         }
 

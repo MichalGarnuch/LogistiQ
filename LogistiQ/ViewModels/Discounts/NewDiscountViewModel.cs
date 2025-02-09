@@ -28,7 +28,7 @@ namespace LogistiQ.ViewModels.Discounts
 
         #region Properties
 
-        //dla każdego pola na interfejsie tworzymy properties
+        
         public int DiscountID
         {
             get
@@ -107,8 +107,8 @@ namespace LogistiQ.ViewModels.Discounts
         #region Helpers
         public override void Save()
         {
-            logistiQ_Entities.Discounts.Add(item);//dodaje towar do lokalnej kolekcji
-            logistiQ_Entities.SaveChanges();//zapisuje zmiany dokonane w bazie danych
+            logistiQ_Entities.Discounts.Add(item);
+            logistiQ_Entities.SaveChanges();
         }
 
         #endregion
@@ -116,7 +116,6 @@ namespace LogistiQ.ViewModels.Discounts
         #region Validation
 
         public string Error => string.Empty;
-        // Słownik przechowujący komunikaty błędów dla każdej właściwości
         private readonly Dictionary<string, string> _validationMessages = new Dictionary<string, string>();
 
         public string this[string properties]
@@ -130,7 +129,6 @@ namespace LogistiQ.ViewModels.Discounts
                     validateMessage = StringValidator.ValidateIsNotEmpty(ProductID?.ToString());
                 }
 
-                // Aktualizujemy słownik błędów
                 if (!string.IsNullOrEmpty(validateMessage))
                 {
                     _validationMessages[properties] = validateMessage;
@@ -146,7 +144,6 @@ namespace LogistiQ.ViewModels.Discounts
 
         public override bool IsValid()
         {
-            // Jeśli w słowniku nie ma błędów, wszystkie pola są poprawne
             return !_validationMessages.Any();
         }
 

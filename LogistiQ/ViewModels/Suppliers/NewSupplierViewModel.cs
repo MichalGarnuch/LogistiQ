@@ -104,8 +104,8 @@ namespace LogistiQ.ViewModels.Suppliers
         #region Helpers
         public override void Save()
         {
-            logistiQ_Entities.Suppliers.Add(item);//dodaje towar do lokalnej kolekcji
-            logistiQ_Entities.SaveChanges();//zapisuje zmiany dokonane w bazie danych
+            logistiQ_Entities.Suppliers.Add(item);
+            logistiQ_Entities.SaveChanges();
         }
 
         #endregion
@@ -113,7 +113,6 @@ namespace LogistiQ.ViewModels.Suppliers
         #region Validation
 
         public string Error => string.Empty;
-        // Słownik przechowujący komunikaty błędów dla każdej właściwości
         private readonly Dictionary<string, string> _validationMessages = new Dictionary<string, string>();
 
         public string this[string properties]
@@ -131,7 +130,6 @@ namespace LogistiQ.ViewModels.Suppliers
                     validateMessage = StringValidator.ValidateIsNotEmpty(Email);
                 }
 
-                // Aktualizujemy słownik błędów
                 if (!string.IsNullOrEmpty(validateMessage))
                 {
                     _validationMessages[properties] = validateMessage;
@@ -147,7 +145,6 @@ namespace LogistiQ.ViewModels.Suppliers
 
         public override bool IsValid()
         {
-            // Jeśli w słowniku nie ma błędów, wszystkie pola są poprawne
             return !_validationMessages.Any();
         }
 

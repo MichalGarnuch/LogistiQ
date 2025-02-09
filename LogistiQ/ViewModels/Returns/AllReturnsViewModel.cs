@@ -23,17 +23,15 @@ namespace LogistiQ.ViewModels.Returns
         }
         public override WorkspaceViewModel CreateNewViewModel()
         {
-            return new NewReturnViewModel(); // Zwracamy odpowiedni ViewModel
+            return new NewReturnViewModel(); 
         }
         #endregion
 
         #region Sort And Find
-        //tu decydujemy po czym sortować do comboboxa
         public override List<string> GetComboboxSortList()
         {
             return new List<string> { "product name", "customer email" };
         }
-        //tu decydujemy jak sortować
         public override void Sort()
         {
             if (SortField == "product name")
@@ -41,12 +39,10 @@ namespace LogistiQ.ViewModels.Returns
             if (SortField == "customer email")
                 List = new ObservableCollection<ReturnForAllView>(List.OrderBy(item => item.OrderCustomerIDEmail));
         }
-        //tu decydujemy po czym wyszukiwać
         public override List<string> GetComboboxFindList()
         {
             return new List<string> { "product name", "customer email" };
         }
-        //tu decydujemy jak wyszukiwać
         public override void Find()
         {
             Load();

@@ -129,8 +129,8 @@ namespace LogistiQ.ViewModels.Customers
         #region Helpers
         public override void Save()
         {
-            logistiQ_Entities.Customers.Add(item);//dodaje towar do lokalnej kolekcji
-            logistiQ_Entities.SaveChanges();//zapisuje zmiany dokonane w bazie danych
+            logistiQ_Entities.Customers.Add(item);
+            logistiQ_Entities.SaveChanges();
         }
 
         #endregion
@@ -177,7 +177,6 @@ namespace LogistiQ.ViewModels.Customers
 
         public override bool IsValid()
         {
-            // Jeśli w słowniku nie ma błędów, wszystkie pola są poprawne
             return !_validationMessages.Any();
         }
 

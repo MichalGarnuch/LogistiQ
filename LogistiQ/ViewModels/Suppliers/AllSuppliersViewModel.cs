@@ -23,17 +23,15 @@ namespace LogistiQ.ViewModels.Suppliers
         }
         public override WorkspaceViewModel CreateNewViewModel()
         {
-            return new NewSupplierViewModel(); // Zwracamy odpowiedni ViewModel
+            return new NewSupplierViewModel(); 
         }
         #endregion
 
         #region Sort And Find
-        //tu decydujemy po czym sortować do comboboxa
         public override List<string> GetComboboxSortList()
         {
             return new List<string> { "name", "address" };
         }
-        //tu decydujemy jak sortować
         public override void Sort()
         {
             if (SortField == "name")
@@ -41,12 +39,10 @@ namespace LogistiQ.ViewModels.Suppliers
             if (SortField == "address")
                 List = new ObservableCollection<LogistiQ.Models.Entities.Suppliers>(List.OrderBy(item => item.Address));
         }
-        //tu decydujemy po czym wyszukiwać
         public override List<string> GetComboboxFindList()
         {
             return new List<string> { "name", "address" };
         }
-        //tu decydujemy jak wyszukiwać
         public override void Find()
         {
             Load();

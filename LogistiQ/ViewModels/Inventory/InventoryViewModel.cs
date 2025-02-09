@@ -31,12 +31,10 @@ namespace LogistiQ.ViewModels.Inventory
         #endregion
 
         #region Sort And Find
-        //tu decydujemy po czym sortować do comboboxa
         public override List<string> GetComboboxSortList()
         {
             return new List<string> { "warehouse name", "product name" };
         }
-        //tu decydujemy jak sortować
         public override void Sort()
         {
             if (SortField == "warehouse name")
@@ -44,12 +42,10 @@ namespace LogistiQ.ViewModels.Inventory
             if (SortField == "product name")
                 List = new ObservableCollection<InventoryForAllView>(List.OrderBy(item => item.ProductName));
         }
-        //tu decydujemy po czym wyszukiwać
         public override List<string> GetComboboxFindList()
         {
             return new List<string> { "warehouse name", "product name" };
         }
-        //tu decydujemy jak wyszukiwać
         public override void Find()
         {
             Load();

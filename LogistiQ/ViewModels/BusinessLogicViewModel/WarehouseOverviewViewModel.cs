@@ -167,7 +167,7 @@ namespace LogistiQ.ViewModels.BusinessLogicViewModel
                 OnPropertyChanged(() => LastDeliveryValue);
 
                 AverageDeliveryPrice = List.Average(x => x.AverageDeliveryPrice);
-                OnPropertyChanged(() => AverageDeliveryPrice); // ✅ To mogło być brakujące!
+                OnPropertyChanged(() => AverageDeliveryPrice); 
             }
         }
 
@@ -203,7 +203,7 @@ namespace LogistiQ.ViewModels.BusinessLogicViewModel
         #region **🔹 Brakująca Implementacja CreateNewViewModel()**
         public override WorkspaceViewModel CreateNewViewModel()
         {
-            return null; // 🔥 Nie tworzymy nowego widoku – WarehouseOverview to tylko podgląd
+            return null; 
         }
         #endregion
     }

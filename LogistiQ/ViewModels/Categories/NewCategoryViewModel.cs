@@ -1,13 +1,13 @@
-﻿using LogistiQ.Models.Entities; // Importujemy model encji z bazy danych, np. `Categories`.
-using LogistiQ.Validators; // Importujemy walidator tekstów (`StringValidator`).
-using LogistiQ.ViewModels.BaseWorkspace; // Klasy bazowe dla ViewModeli.
-using LogistiQ.Views.BaseWorkspace; // Widoki bazowe, np. `SingleRecordViewBase`.
-using System; // Podstawowe funkcje systemowe.
-using System.Collections.Generic; // Obsługa kolekcji, np. list i słowników.
+﻿using LogistiQ.Models.Entities;
+using LogistiQ.Validators; 
+using LogistiQ.ViewModels.BaseWorkspace; 
+using LogistiQ.Views.BaseWorkspace; 
+using System; 
+using System.Collections.Generic; 
 using System.ComponentModel;
-using System.Linq; // Funkcje LINQ do pracy z kolekcjami (np. filtrowanie danych).
-using System.Text; // Manipulacja tekstami.
-using System.Threading.Tasks; // Zadania asynchroniczne.
+using System.Linq; 
+using System.Text; 
+using System.Threading.Tasks; 
 
 namespace LogistiQ.ViewModels.Categories
 {

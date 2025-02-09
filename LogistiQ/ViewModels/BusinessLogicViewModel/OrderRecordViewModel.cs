@@ -99,7 +99,7 @@ namespace LogistiQ.ViewModels.BusinessLogicViewModel
                 List = new ObservableCollection<OrderRecordForAllView>(
                     orderRecordB.GetOrdersByCustomer(SelectedCustomerId));
 
-                // Przeliczenie wartości zamówienia i średniej wartości
+               
                 TotalOrderValue = orderRecordB.GetTotalOrderValue(SelectedCustomerId);
                 AverageOrderValue = orderRecordB.GetAverageOrderValue(SelectedCustomerId);
             }

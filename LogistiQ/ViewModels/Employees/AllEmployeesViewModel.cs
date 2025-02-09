@@ -28,12 +28,10 @@ namespace LogistiQ.ViewModels.Employees
         #endregion
 
         #region Sort And Find
-        //tu decydujemy po czym sortować do comboboxa
         public override List<string> GetComboboxSortList()
         {
             return new List<string> { "first name", "last name" };
         }
-        //tu decydujemy jak sortować
         public override void Sort()
         {
             if (SortField == "first name")
@@ -41,12 +39,10 @@ namespace LogistiQ.ViewModels.Employees
             if (SortField == "last name")
                 List = new ObservableCollection<EmployeeForAllView>(List.OrderBy(item => item.LastName));
         }
-        //tu decydujemy po czym wyszukiwać
         public override List<string> GetComboboxFindList()
         {
             return new List<string> { "first name", "last name" };
         }
-        //tu decydujemy jak wyszukiwać
         public override void Find()
         {
             Load();
