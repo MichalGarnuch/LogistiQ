@@ -1,0 +1,199 @@
+# LogistiQ — mapa plików (1/1)
+
+Wykaz śledzonych plików z badanego commita. Liczba wierszy i nazwy deklaracji są wyciągane automatycznie z dostępnej kopii tekstowej; nie oznaczają ręcznej oceny pliku. Brak opisu oznacza, że zawartość nie była analizowana tą metodą (np. plik binarny, zasób lub pominięty plik).
+
+[Wróć do audytu](AUDYT_EDUKACYJNY.md) · [1](AUDYT_MAPA_01.md)
+
+- [.gitattributes](.gitattributes)
+- [.gitignore](.gitignore)
+- [LogistiQ.sln](LogistiQ.sln)
+- [LogistiQ/App.xaml](LogistiQ/App.xaml) — 7 wierszy
+- [LogistiQ/App.xaml.cs](LogistiQ/App.xaml.cs) — 27 wierszy; deklaracje: `App:12`
+- [LogistiQ/Helper/BaseCommand.cs](LogistiQ/Helper/BaseCommand.cs) — 104 wierszy
+- [LogistiQ/LogistiQ.csproj](LogistiQ/LogistiQ.csproj) — 536 wierszy
+- [LogistiQ/Models/BusinessLogic/BaseWorkspace/DatabaseClass.cs](LogistiQ/Models/BusinessLogic/BaseWorkspace/DatabaseClass.cs) — 46 wierszy; deklaracje: `DatabaseClass:17`
+- [LogistiQ/Models/BusinessLogic/CategoryB.cs](LogistiQ/Models/BusinessLogic/CategoryB.cs) — 61 wierszy; deklaracje: `CategoryB:14`
+- [LogistiQ/Models/BusinessLogic/CustomerB.cs](LogistiQ/Models/BusinessLogic/CustomerB.cs) — 67 wierszy; deklaracje: `CustomerB:16`
+- [LogistiQ/Models/BusinessLogic/DeliveryB.cs](LogistiQ/Models/BusinessLogic/DeliveryB.cs) — 111 wierszy; deklaracje: `DeliveryB:10`
+- [LogistiQ/Models/BusinessLogic/DocumentB.cs](LogistiQ/Models/BusinessLogic/DocumentB.cs) — 61 wierszy; deklaracje: `DocumentB:14`
+- [LogistiQ/Models/BusinessLogic/OrderB.cs](LogistiQ/Models/BusinessLogic/OrderB.cs) — 73 wierszy; deklaracje: `OrderB:16`
+- [LogistiQ/Models/BusinessLogic/ProductsB.cs](LogistiQ/Models/BusinessLogic/ProductsB.cs) — 64 wierszy; deklaracje: `ProductB:16`
+- [LogistiQ/Models/BusinessLogic/SharedLogic/DeliveryRecordB.cs](LogistiQ/Models/BusinessLogic/SharedLogic/DeliveryRecordB.cs) — 99 wierszy; deklaracje: `DeliveryRecordB:14`
+- [LogistiQ/Models/BusinessLogic/SharedLogic/OrderRecordB.cs](LogistiQ/Models/BusinessLogic/SharedLogic/OrderRecordB.cs) — 153 wierszy; deklaracje: `OrderRecordB:15`
+- [LogistiQ/Models/BusinessLogic/SharedLogic/WarehouseOverviewB.cs](LogistiQ/Models/BusinessLogic/SharedLogic/WarehouseOverviewB.cs) — 59 wierszy; deklaracje: `WarehouseOverviewB:11`
+- [LogistiQ/Models/BusinessLogic/SupplierB.cs](LogistiQ/Models/BusinessLogic/SupplierB.cs) — 62 wierszy; deklaracje: `SupplierB:16`
+- [LogistiQ/Models/BusinessLogic/WarehouseB.cs](LogistiQ/Models/BusinessLogic/WarehouseB.cs) — 61 wierszy; deklaracje: `WarehouseB:16`
+- [LogistiQ/Models/Entities/Categories.cs](LogistiQ/Models/Entities/Categories.cs) — 30 wierszy; deklaracje: `Categories:15`
+- [LogistiQ/Models/Entities/Customers.cs](LogistiQ/Models/Entities/Customers.cs) — 38 wierszy; deklaracje: `Customers:15`
+- [LogistiQ/Models/Entities/Deliveries.cs](LogistiQ/Models/Entities/Deliveries.cs) — 35 wierszy; deklaracje: `Deliveries:15`
+- [LogistiQ/Models/Entities/DeliveryDetails.cs](LogistiQ/Models/Entities/DeliveryDetails.cs) — 26 wierszy; deklaracje: `DeliveryDetails:15`
+- [LogistiQ/Models/Entities/Discounts.cs](LogistiQ/Models/Entities/Discounts.cs) — 25 wierszy; deklaracje: `Discounts:15`
+- [LogistiQ/Models/Entities/Documents.cs](LogistiQ/Models/Entities/Documents.cs) — 35 wierszy; deklaracje: `Documents:15`
+- [LogistiQ/Models/Entities/Employees.cs](LogistiQ/Models/Entities/Employees.cs) — 34 wierszy; deklaracje: `Employees:15`
+- [LogistiQ/Models/Entities/Inventory.cs](LogistiQ/Models/Entities/Inventory.cs) — 26 wierszy; deklaracje: `Inventory:15`
+- [LogistiQ/Models/Entities/Invoices.cs](LogistiQ/Models/Entities/Invoices.cs) — 28 wierszy; deklaracje: `Invoices:15`
+- [LogistiQ/Models/Entities/LogistiQ_DB_Model.Context.cs](LogistiQ/Models/Entities/LogistiQ_DB_Model.Context.cs) — 153 wierszy; deklaracje: `LogistiQ_Entities:18`
+- [LogistiQ/Models/Entities/LogistiQ_DB_Model.Context.tt](LogistiQ/Models/Entities/LogistiQ_DB_Model.Context.tt)
+- [LogistiQ/Models/Entities/LogistiQ_DB_Model.Designer.cs](LogistiQ/Models/Entities/LogistiQ_DB_Model.Designer.cs) — 10 wierszy
+- [LogistiQ/Models/Entities/LogistiQ_DB_Model.cs](LogistiQ/Models/Entities/LogistiQ_DB_Model.cs) — 9 wierszy
+- [LogistiQ/Models/Entities/LogistiQ_DB_Model.edmx](LogistiQ/Models/Entities/LogistiQ_DB_Model.edmx)
+- [LogistiQ/Models/Entities/LogistiQ_DB_Model.edmx.diagram](LogistiQ/Models/Entities/LogistiQ_DB_Model.edmx.diagram)
+- [LogistiQ/Models/Entities/LogistiQ_DB_Model.tt](LogistiQ/Models/Entities/LogistiQ_DB_Model.tt)
+- [LogistiQ/Models/Entities/OrderDetails.cs](LogistiQ/Models/Entities/OrderDetails.cs) — 27 wierszy; deklaracje: `OrderDetails:15`
+- [LogistiQ/Models/Entities/Orders.cs](LogistiQ/Models/Entities/Orders.cs) — 39 wierszy; deklaracje: `Orders:15`
+- [LogistiQ/Models/Entities/Payments.cs](LogistiQ/Models/Entities/Payments.cs) — 25 wierszy; deklaracje: `Payments:15`
+- [LogistiQ/Models/Entities/Products.cs](LogistiQ/Models/Entities/Products.cs) — 51 wierszy; deklaracje: `Products:15`
+- [LogistiQ/Models/Entities/Returns.cs](LogistiQ/Models/Entities/Returns.cs) — 27 wierszy; deklaracje: `Returns:15`
+- [LogistiQ/Models/Entities/Shifts.cs](LogistiQ/Models/Entities/Shifts.cs) — 27 wierszy; deklaracje: `Shifts:15`
+- [LogistiQ/Models/Entities/StockLevels.cs](LogistiQ/Models/Entities/StockLevels.cs) — 26 wierszy; deklaracje: `StockLevels:15`
+- [LogistiQ/Models/Entities/Suppliers.cs](LogistiQ/Models/Entities/Suppliers.cs) — 33 wierszy; deklaracje: `Suppliers:15`
+- [LogistiQ/Models/Entities/Warehouses.cs](LogistiQ/Models/Entities/Warehouses.cs) — 46 wierszy; deklaracje: `Warehouses:15`
+- [LogistiQ/Models/Entities/sp_helpdiagramdefinition_Result.cs](LogistiQ/Models/Entities/sp_helpdiagramdefinition_Result.cs) — 19 wierszy; deklaracje: `sp_helpdiagramdefinition_Result:14`
+- [LogistiQ/Models/Entities/sp_helpdiagrams_Result.cs](LogistiQ/Models/Entities/sp_helpdiagrams_Result.cs) — 22 wierszy; deklaracje: `sp_helpdiagrams_Result:14`
+- [LogistiQ/Models/Entities/sysdiagrams.cs](LogistiQ/Models/Entities/sysdiagrams.cs) — 23 wierszy; deklaracje: `sysdiagrams:15`
+- [LogistiQ/Models/EntitiesForView/BaseWorkspace/KeyAndValue.cs](LogistiQ/Models/EntitiesForView/BaseWorkspace/KeyAndValue.cs) — 24 wierszy; deklaracje: `KeyAndValue:16`
+- [LogistiQ/Models/EntitiesForView/CategoryForAllView.cs](LogistiQ/Models/EntitiesForView/CategoryForAllView.cs) — 24 wierszy; deklaracje: `CategoryForAllView:13`
+- [LogistiQ/Models/EntitiesForView/DeliveryDetailForAllView.cs](LogistiQ/Models/EntitiesForView/DeliveryDetailForAllView.cs) — 30 wierszy; deklaracje: `DeliveryDetailForAllView:13`
+- [LogistiQ/Models/EntitiesForView/DeliveryForAllView.cs](LogistiQ/Models/EntitiesForView/DeliveryForAllView.cs) — 39 wierszy; deklaracje: `DeliveryForAllView:13`
+- [LogistiQ/Models/EntitiesForView/DeliveryRecordForAllView.cs](LogistiQ/Models/EntitiesForView/DeliveryRecordForAllView.cs) — 47 wierszy; deklaracje: `DeliveryRecordForAllView:21`
+- [LogistiQ/Models/EntitiesForView/DiscountForAllView.cs](LogistiQ/Models/EntitiesForView/DiscountForAllView.cs) — 34 wierszy; deklaracje: `DiscountForAllView:14`
+- [LogistiQ/Models/EntitiesForView/DocumentForAllView.cs](LogistiQ/Models/EntitiesForView/DocumentForAllView.cs) — 40 wierszy; deklaracje: `DocumentForAllView:14`
+- [LogistiQ/Models/EntitiesForView/EmployeeForAllView.cs](LogistiQ/Models/EntitiesForView/EmployeeForAllView.cs) — 30 wierszy; deklaracje: `EmployeeForAllView:14`
+- [LogistiQ/Models/EntitiesForView/InventoryForAllView.cs](LogistiQ/Models/EntitiesForView/InventoryForAllView.cs) — 43 wierszy; deklaracje: `InventoryForAllView:18`
+- [LogistiQ/Models/EntitiesForView/InvoiceForAllView.cs](LogistiQ/Models/EntitiesForView/InvoiceForAllView.cs) — 54 wierszy; deklaracje: `InvoiceForAllView:22`
+- [LogistiQ/Models/EntitiesForView/OrderDetailForAllView.cs](LogistiQ/Models/EntitiesForView/OrderDetailForAllView.cs) — 45 wierszy; deklaracje: `OrderDetailForAllView:19`
+- [LogistiQ/Models/EntitiesForView/OrderForAllView.cs](LogistiQ/Models/EntitiesForView/OrderForAllView.cs) — 36 wierszy; deklaracje: `OrderForAllView:13`
+- [LogistiQ/Models/EntitiesForView/OrderRecordForAllView.cs](LogistiQ/Models/EntitiesForView/OrderRecordForAllView.cs) — 44 wierszy; deklaracje: `OrderRecordForAllView:14`
+- [LogistiQ/Models/EntitiesForView/PaymentForAllView.cs](LogistiQ/Models/EntitiesForView/PaymentForAllView.cs) — 43 wierszy; deklaracje: `PaymentForAllView:18`
+- [LogistiQ/Models/EntitiesForView/ProductForAllView.cs](LogistiQ/Models/EntitiesForView/ProductForAllView.cs) — 48 wierszy; deklaracje: `ProductForAllView:22`
+- [LogistiQ/Models/EntitiesForView/ReturnForAllView.cs](LogistiQ/Models/EntitiesForView/ReturnForAllView.cs) — 49 wierszy; deklaracje: `ReturnForAllView:19`
+- [LogistiQ/Models/EntitiesForView/ShiftForAllView.cs](LogistiQ/Models/EntitiesForView/ShiftForAllView.cs) — 43 wierszy; deklaracje: `ShiftForAllView:14`
+- [LogistiQ/Models/EntitiesForView/StockLevelForAllView.cs](LogistiQ/Models/EntitiesForView/StockLevelForAllView.cs) — 43 wierszy; deklaracje: `StockLevelForAllView:20`
+- [LogistiQ/Models/EntitiesForView/WarehouseOverviewForAllView.cs](LogistiQ/Models/EntitiesForView/WarehouseOverviewForAllView.cs) — 44 wierszy; deklaracje: `WarehouseOverviewForAllView:9`
+- [LogistiQ/Properties/AssemblyInfo.cs](LogistiQ/Properties/AssemblyInfo.cs) — 55 wierszy
+- [LogistiQ/Properties/Resources.Designer.cs](LogistiQ/Properties/Resources.Designer.cs) — 63 wierszy
+- [LogistiQ/Properties/Resources.resx](LogistiQ/Properties/Resources.resx)
+- [LogistiQ/Properties/Settings.Designer.cs](LogistiQ/Properties/Settings.Designer.cs) — 26 wierszy
+- [LogistiQ/Properties/Settings.settings](LogistiQ/Properties/Settings.settings)
+- [LogistiQ/Themes/Generic.xaml](LogistiQ/Themes/Generic.xaml) — 81 wierszy
+- [LogistiQ/Validators/BusinessValidator.cs](LogistiQ/Validators/BusinessValidator.cs) — 46 wierszy; deklaracje: `BusinessValidator:13`
+- [LogistiQ/Validators/StringValidator.cs](LogistiQ/Validators/StringValidator.cs) — 69 wierszy; deklaracje: `StringValidator:14`
+- [LogistiQ/ViewModels/BaseWorkspace/AllViewModel.cs](LogistiQ/ViewModels/BaseWorkspace/AllViewModel.cs) — 230 wierszy; deklaracje: `AllViewModel:19`
+- [LogistiQ/ViewModels/BaseWorkspace/BaseViewModel.cs](LogistiQ/ViewModels/BaseWorkspace/BaseViewModel.cs) — 183 wierszy; deklaracje: `BaseViewModel:15`
+- [LogistiQ/ViewModels/BaseWorkspace/CommandViewModel.cs](LogistiQ/ViewModels/BaseWorkspace/CommandViewModel.cs) — 46 wierszy; deklaracje: `CommandViewModel:14`
+- [LogistiQ/ViewModels/BaseWorkspace/MainWindowViewModel.cs](LogistiQ/ViewModels/BaseWorkspace/MainWindowViewModel.cs) — 279 wierszy; deklaracje: `MainWindowViewModel:36`
+- [LogistiQ/ViewModels/BaseWorkspace/WorkspaceViewModel.cs](LogistiQ/ViewModels/BaseWorkspace/WorkspaceViewModel.cs) — 67 wierszy; deklaracje: `WorkspaceViewModel:15`
+- [LogistiQ/ViewModels/BusinessLogicViewModel/DeliveryRecordViewModel.cs](LogistiQ/ViewModels/BusinessLogicViewModel/DeliveryRecordViewModel.cs) — 272 wierszy; deklaracje: `DeliveryRecordViewModel:21`
+- [LogistiQ/ViewModels/BusinessLogicViewModel/OrderRecordViewModel.cs](LogistiQ/ViewModels/BusinessLogicViewModel/OrderRecordViewModel.cs) — 260 wierszy; deklaracje: `OrderRecordViewModel:22`
+- [LogistiQ/ViewModels/BusinessLogicViewModel/WarehouseOverviewViewModel.cs](LogistiQ/ViewModels/BusinessLogicViewModel/WarehouseOverviewViewModel.cs) — 291 wierszy; deklaracje: `WarehouseOverviewViewModel:22`
+- [LogistiQ/ViewModels/Categories/AllCategoriesViewModel.cs](LogistiQ/ViewModels/Categories/AllCategoriesViewModel.cs) — 117 wierszy; deklaracje: `AllCategoriesViewModel:19`
+- [LogistiQ/ViewModels/Categories/NewCategoryViewModel.cs](LogistiQ/ViewModels/Categories/NewCategoryViewModel.cs) — 145 wierszy; deklaracje: `NewCategoryViewModel:19`
+- [LogistiQ/ViewModels/Customers/AllCustomersViewModel.cs](LogistiQ/ViewModels/Customers/AllCustomersViewModel.cs) — 96 wierszy; deklaracje: `AllCustomersViewModel:15`
+- [LogistiQ/ViewModels/Customers/NewCustomerViewModel.cs](LogistiQ/ViewModels/Customers/NewCustomerViewModel.cs) — 185 wierszy; deklaracje: `NewCustomersViewModel:15`
+- [LogistiQ/ViewModels/Deliveries/AllDeliveriesViewModel.cs](LogistiQ/ViewModels/Deliveries/AllDeliveriesViewModel.cs) — 78 wierszy; deklaracje: `AllDeliveriesViewModel:14`
+- [LogistiQ/ViewModels/Deliveries/DeliveryDetailsViewModel.cs](LogistiQ/ViewModels/Deliveries/DeliveryDetailsViewModel.cs) — 75 wierszy; deklaracje: `DeliveryDetailsViewModel:13`
+- [LogistiQ/ViewModels/Deliveries/NewDeliveryViewModel.cs](LogistiQ/ViewModels/Deliveries/NewDeliveryViewModel.cs) — 178 wierszy; deklaracje: `NewDeliveryViewModel:16`
+- [LogistiQ/ViewModels/Discounts/AllDiscountsViewModel.cs](LogistiQ/ViewModels/Discounts/AllDiscountsViewModel.cs) — 76 wierszy; deklaracje: `AllDiscountsViewModel:14`
+- [LogistiQ/ViewModels/Discounts/NewDiscountViewModel.cs](LogistiQ/ViewModels/Discounts/NewDiscountViewModel.cs) — 154 wierszy; deklaracje: `NewDiscountViewModel:17`
+- [LogistiQ/ViewModels/Documents/AllDocumentsViewModel.cs](LogistiQ/ViewModels/Documents/AllDocumentsViewModel.cs) — 79 wierszy; deklaracje: `AllDocumentsViewModel:15`
+- [LogistiQ/ViewModels/Documents/NewDocumentViewModel.cs](LogistiQ/ViewModels/Documents/NewDocumentViewModel.cs) — 185 wierszy; deklaracje: `NewDocumentViewModel:15`
+- [LogistiQ/ViewModels/Employees/AllEmployeesViewModel.cs](LogistiQ/ViewModels/Employees/AllEmployeesViewModel.cs) — 77 wierszy; deklaracje: `AllEmployeesViewModel:14`
+- [LogistiQ/ViewModels/Employees/NewEmployeeViewModel.cs](LogistiQ/ViewModels/Employees/NewEmployeeViewModel.cs) — 170 wierszy; deklaracje: `NewEmployeeViewModel:16`
+- [LogistiQ/ViewModels/Inventory/InventoryViewModel.cs](LogistiQ/ViewModels/Inventory/InventoryViewModel.cs) — 80 wierszy; deklaracje: `InventoryViewModel:15`
+- [LogistiQ/ViewModels/Invoices/AllInvoicesViewModel.cs](LogistiQ/ViewModels/Invoices/AllInvoicesViewModel.cs) — 84 wierszy; deklaracje: `AllInvoicesViewModel:15`
+- [LogistiQ/ViewModels/Invoices/NewInvoiceViewModel.cs](LogistiQ/ViewModels/Invoices/NewInvoiceViewModel.cs) — 196 wierszy; deklaracje: `NewInvoiceViewModel:17`
+- [LogistiQ/ViewModels/Orders/AllOrdersViewModel.cs](LogistiQ/ViewModels/Orders/AllOrdersViewModel.cs) — 77 wierszy; deklaracje: `AllOrdersViewModel:14`
+- [LogistiQ/ViewModels/Orders/NewOrderViewModel.cs](LogistiQ/ViewModels/Orders/NewOrderViewModel.cs) — 152 wierszy; deklaracje: `NewOrderViewModel:17`
+- [LogistiQ/ViewModels/Orders/OrderDetailsViewModel.cs](LogistiQ/ViewModels/Orders/OrderDetailsViewModel.cs) — 78 wierszy; deklaracje: `OrderDetailsViewModel:13`
+- [LogistiQ/ViewModels/Payments/AllPaymentsViewModel.cs](LogistiQ/ViewModels/Payments/AllPaymentsViewModel.cs) — 77 wierszy; deklaracje: `AllPaymentsViewModel:14`
+- [LogistiQ/ViewModels/Products/AllProductsViewModel.cs](LogistiQ/ViewModels/Products/AllProductsViewModel.cs) — 86 wierszy; deklaracje: `AllProductsViewModel:14`
+- [LogistiQ/ViewModels/Products/NewProductViewModel.cs](LogistiQ/ViewModels/Products/NewProductViewModel.cs) — 200 wierszy; deklaracje: `NewProductViewModel:14`
+- [LogistiQ/ViewModels/Returns/AllReturnsViewModel.cs](LogistiQ/ViewModels/Returns/AllReturnsViewModel.cs) — 81 wierszy; deklaracje: `AllReturnsViewModel:14`
+- [LogistiQ/ViewModels/Returns/NewReturnViewModel.cs](LogistiQ/ViewModels/Returns/NewReturnViewModel.cs) — 175 wierszy; deklaracje: `NewReturnViewModel:17`
+- [LogistiQ/ViewModels/Shifts/AllShiftsViewModel.cs](LogistiQ/ViewModels/Shifts/AllShiftsViewModel.cs) — 80 wierszy; deklaracje: `AllShiftsViewModel:14`
+- [LogistiQ/ViewModels/StockLevels/StockLevelsViewModel.cs](LogistiQ/ViewModels/StockLevels/StockLevelsViewModel.cs) — 78 wierszy; deklaracje: `StockLevelsViewModel:14`
+- [LogistiQ/ViewModels/Suppliers/AllSuppliersViewModel.cs](LogistiQ/ViewModels/Suppliers/AllSuppliersViewModel.cs) — 67 wierszy; deklaracje: `AllSuppliersViewModel:14`
+- [LogistiQ/ViewModels/Suppliers/NewSupplierViewModel.cs](LogistiQ/ViewModels/Suppliers/NewSupplierViewModel.cs) — 153 wierszy; deklaracje: `NewSupplierViewModel:14`
+- [LogistiQ/ViewModels/Warehouses/AllWarehousesViewModel.cs](LogistiQ/ViewModels/Warehouses/AllWarehousesViewModel.cs) — 67 wierszy; deklaracje: `AllWarehousesViewModel:14`
+- [LogistiQ/ViewModels/Warehouses/NewWarehouseViewModel.cs](LogistiQ/ViewModels/Warehouses/NewWarehouseViewModel.cs) — 132 wierszy; deklaracje: `NewWarehouseViewModel:14`
+- [LogistiQ/Views/BaseWorkspace/AllViewBase.cs](LogistiQ/Views/BaseWorkspace/AllViewBase.cs) — 54 wierszy; deklaracje: `AllViewBase:47`
+- [LogistiQ/Views/BaseWorkspace/MainWindow.xaml](LogistiQ/Views/BaseWorkspace/MainWindow.xaml) — 67 wierszy
+- [LogistiQ/Views/BaseWorkspace/MainWindow.xaml.cs](LogistiQ/Views/BaseWorkspace/MainWindow.xaml.cs) — 26 wierszy; deklaracje: `MainWindow:17`
+- [LogistiQ/Views/BaseWorkspace/MainWindowResources.xaml](LogistiQ/Views/BaseWorkspace/MainWindowResources.xaml) — 261 wierszy
+- [LogistiQ/Views/BaseWorkspace/SingleRecordViewBase.cs](LogistiQ/Views/BaseWorkspace/SingleRecordViewBase.cs) — 54 wierszy; deklaracje: `SingleRecordViewBase:47`
+- [LogistiQ/Views/BaseWorkspace/SingleRecordViewModel.cs](LogistiQ/Views/BaseWorkspace/SingleRecordViewModel.cs) — 102 wierszy; deklaracje: `SingleRecordViewModel:50`
+- [LogistiQ/Views/BusinessLogicView/DeliveryRecordView.xaml](LogistiQ/Views/BusinessLogicView/DeliveryRecordView.xaml) — 75 wierszy
+- [LogistiQ/Views/BusinessLogicView/DeliveryRecordView.xaml.cs](LogistiQ/Views/BusinessLogicView/DeliveryRecordView.xaml.cs) — 28 wierszy; deklaracje: `DeliveryRecordView:21`
+- [LogistiQ/Views/BusinessLogicView/OrderRecordView.xaml](LogistiQ/Views/BusinessLogicView/OrderRecordView.xaml) — 64 wierszy
+- [LogistiQ/Views/BusinessLogicView/OrderRecordView.xaml.cs](LogistiQ/Views/BusinessLogicView/OrderRecordView.xaml.cs) — 28 wierszy; deklaracje: `OrderRecordView:21`
+- [LogistiQ/Views/BusinessLogicView/WarehouseOverviewView.xaml](LogistiQ/Views/BusinessLogicView/WarehouseOverviewView.xaml) — 76 wierszy
+- [LogistiQ/Views/BusinessLogicView/WarehouseOverviewView.xaml.cs](LogistiQ/Views/BusinessLogicView/WarehouseOverviewView.xaml.cs) — 28 wierszy; deklaracje: `WarehouseOverviewView:21`
+- [LogistiQ/Views/Categories/AllCategoriesView.xaml](LogistiQ/Views/Categories/AllCategoriesView.xaml) — 18 wierszy
+- [LogistiQ/Views/Categories/AllCategoriesView.xaml.cs](LogistiQ/Views/Categories/AllCategoriesView.xaml.cs) — 29 wierszy; deklaracje: `AllCategoriesView:22`
+- [LogistiQ/Views/Categories/NewCategoryView.xaml](LogistiQ/Views/Categories/NewCategoryView.xaml) — 31 wierszy
+- [LogistiQ/Views/Categories/NewCategoryView.xaml.cs](LogistiQ/Views/Categories/NewCategoryView.xaml.cs) — 29 wierszy; deklaracje: `NewCategoryView:22`
+- [LogistiQ/Views/Customers/AllCustomersView.xaml](LogistiQ/Views/Customers/AllCustomersView.xaml) — 23 wierszy
+- [LogistiQ/Views/Customers/AllCustomersView.xaml.cs](LogistiQ/Views/Customers/AllCustomersView.xaml.cs) — 29 wierszy; deklaracje: `AllCustomersView:22`
+- [LogistiQ/Views/Customers/NewCustomerView.xaml](LogistiQ/Views/Customers/NewCustomerView.xaml) — 51 wierszy
+- [LogistiQ/Views/Customers/NewCustomerView.xaml.cs](LogistiQ/Views/Customers/NewCustomerView.xaml.cs) — 29 wierszy; deklaracje: `NewCustomerView:22`
+- [LogistiQ/Views/Deliveries/AllDeliveriesView.xaml](LogistiQ/Views/Deliveries/AllDeliveriesView.xaml) — 23 wierszy
+- [LogistiQ/Views/Deliveries/AllDeliveriesView.xaml.cs](LogistiQ/Views/Deliveries/AllDeliveriesView.xaml.cs) — 29 wierszy; deklaracje: `AllDeliveriesView:22`
+- [LogistiQ/Views/Deliveries/DeliveryDetailsView.xaml](LogistiQ/Views/Deliveries/DeliveryDetailsView.xaml) — 20 wierszy
+- [LogistiQ/Views/Deliveries/DeliveryDetailsView.xaml.cs](LogistiQ/Views/Deliveries/DeliveryDetailsView.xaml.cs) — 29 wierszy; deklaracje: `DeliveryDetailsView:22`
+- [LogistiQ/Views/Deliveries/NewDeliveryView.xaml](LogistiQ/Views/Deliveries/NewDeliveryView.xaml) — 48 wierszy
+- [LogistiQ/Views/Deliveries/NewDeliveryView.xaml.cs](LogistiQ/Views/Deliveries/NewDeliveryView.xaml.cs) — 29 wierszy; deklaracje: `NewDeliveryView:22`
+- [LogistiQ/Views/Discounts/AllDiscountsView.xaml](LogistiQ/Views/Discounts/AllDiscountsView.xaml) — 21 wierszy
+- [LogistiQ/Views/Discounts/AllDiscountsView.xaml.cs](LogistiQ/Views/Discounts/AllDiscountsView.xaml.cs) — 29 wierszy; deklaracje: `AllDiscountsView:22`
+- [LogistiQ/Views/Discounts/NewDiscountView.xaml](LogistiQ/Views/Discounts/NewDiscountView.xaml) — 41 wierszy
+- [LogistiQ/Views/Discounts/NewDiscountView.xaml.cs](LogistiQ/Views/Discounts/NewDiscountView.xaml.cs) — 29 wierszy; deklaracje: `NewDiscountView:22`
+- [LogistiQ/Views/Documents/AllDocumentsView.xaml](LogistiQ/Views/Documents/AllDocumentsView.xaml) — 23 wierszy
+- [LogistiQ/Views/Documents/AllDocumentsView.xaml.cs](LogistiQ/Views/Documents/AllDocumentsView.xaml.cs) — 29 wierszy; deklaracje: `AllDocumentsView:22`
+- [LogistiQ/Views/Documents/NewDocumentView.xaml](LogistiQ/Views/Documents/NewDocumentView.xaml) — 50 wierszy
+- [LogistiQ/Views/Documents/NewDocumentView.xaml.cs](LogistiQ/Views/Documents/NewDocumentView.xaml.cs) — 29 wierszy; deklaracje: `NewDocumentView:22`
+- [LogistiQ/Views/Employees/AllEmployeesView.xaml](LogistiQ/Views/Employees/AllEmployeesView.xaml) — 22 wierszy
+- [LogistiQ/Views/Employees/AllEmployeesView.xaml.cs](LogistiQ/Views/Employees/AllEmployeesView.xaml.cs) — 29 wierszy; deklaracje: `AllEmployeesView:22`
+- [LogistiQ/Views/Employees/NewEmployeeView.xaml](LogistiQ/Views/Employees/NewEmployeeView.xaml) — 45 wierszy
+- [LogistiQ/Views/Employees/NewEmployeeView.xaml.cs](LogistiQ/Views/Employees/NewEmployeeView.xaml.cs) — 29 wierszy; deklaracje: `NewEmployeeView:22`
+- [LogistiQ/Views/Inventory/InventoryView.xaml](LogistiQ/Views/Inventory/InventoryView.xaml) — 22 wierszy
+- [LogistiQ/Views/Inventory/InventoryView.xaml.cs](LogistiQ/Views/Inventory/InventoryView.xaml.cs) — 30 wierszy; deklaracje: `InventoryView:22`
+- [LogistiQ/Views/Invoices/AllInvoicesView.xaml](LogistiQ/Views/Invoices/AllInvoicesView.xaml) — 25 wierszy
+- [LogistiQ/Views/Invoices/AllInvoicesView.xaml.cs](LogistiQ/Views/Invoices/AllInvoicesView.xaml.cs) — 29 wierszy; deklaracje: `AllInvoicesView:22`
+- [LogistiQ/Views/Invoices/NewInvoiceView.xaml](LogistiQ/Views/Invoices/NewInvoiceView.xaml) — 54 wierszy
+- [LogistiQ/Views/Invoices/NewInvoiceView.xaml.cs](LogistiQ/Views/Invoices/NewInvoiceView.xaml.cs) — 29 wierszy; deklaracje: `NewInvoiceView:22`
+- [LogistiQ/Views/Orders/AllOrdersView.xaml](LogistiQ/Views/Orders/AllOrdersView.xaml) — 22 wierszy
+- [LogistiQ/Views/Orders/AllOrdersView.xaml.cs](LogistiQ/Views/Orders/AllOrdersView.xaml.cs) — 29 wierszy; deklaracje: `AllOrdersView:22`
+- [LogistiQ/Views/Orders/NewOrderView.xaml](LogistiQ/Views/Orders/NewOrderView.xaml) — 41 wierszy
+- [LogistiQ/Views/Orders/NewOrderView.xaml.cs](LogistiQ/Views/Orders/NewOrderView.xaml.cs) — 29 wierszy; deklaracje: `NewOrderView:22`
+- [LogistiQ/Views/Orders/OrderDetailsView.xaml](LogistiQ/Views/Orders/OrderDetailsView.xaml) — 24 wierszy
+- [LogistiQ/Views/Orders/OrderDetailsView.xaml.cs](LogistiQ/Views/Orders/OrderDetailsView.xaml.cs) — 29 wierszy; deklaracje: `OrderDetailsView:22`
+- [LogistiQ/Views/Payments/AllPaymentsView.xaml](LogistiQ/Views/Payments/AllPaymentsView.xaml) — 25 wierszy
+- [LogistiQ/Views/Payments/AllPaymentsView.xaml.cs](LogistiQ/Views/Payments/AllPaymentsView.xaml.cs) — 29 wierszy; deklaracje: `AllPaymentsView:22`
+- [LogistiQ/Views/Products/AllProductsView.xaml](LogistiQ/Views/Products/AllProductsView.xaml) — 25 wierszy
+- [LogistiQ/Views/Products/AllProductsView.xaml.cs](LogistiQ/Views/Products/AllProductsView.xaml.cs) — 56 wierszy; deklaracje: `AllProductsView:22`
+- [LogistiQ/Views/Products/NewProductView.xaml](LogistiQ/Views/Products/NewProductView.xaml) — 60 wierszy
+- [LogistiQ/Views/Products/NewProductView.xaml.cs](LogistiQ/Views/Products/NewProductView.xaml.cs) — 56 wierszy; deklaracje: `NewProductView:22`
+- [LogistiQ/Views/Returns/AllReturnsView.xaml](LogistiQ/Views/Returns/AllReturnsView.xaml) — 26 wierszy
+- [LogistiQ/Views/Returns/AllReturnsView.xaml.cs](LogistiQ/Views/Returns/AllReturnsView.xaml.cs) — 29 wierszy; deklaracje: `AllReturnsView:22`
+- [LogistiQ/Views/Returns/NewReturnView.xaml](LogistiQ/Views/Returns/NewReturnView.xaml) — 48 wierszy
+- [LogistiQ/Views/Returns/NewReturnView.xaml.cs](LogistiQ/Views/Returns/NewReturnView.xaml.cs) — 29 wierszy; deklaracje: `NewReturnView:22`
+- [LogistiQ/Views/Shifts/AllShiftsView.xaml](LogistiQ/Views/Shifts/AllShiftsView.xaml) — 24 wierszy
+- [LogistiQ/Views/Shifts/AllShiftsView.xaml.cs](LogistiQ/Views/Shifts/AllShiftsView.xaml.cs) — 29 wierszy; deklaracje: `AllShiftsView:22`
+- [LogistiQ/Views/StockLevels/StockLevelsView.xaml](LogistiQ/Views/StockLevels/StockLevelsView.xaml) — 22 wierszy
+- [LogistiQ/Views/StockLevels/StockLevelsView.xaml.cs](LogistiQ/Views/StockLevels/StockLevelsView.xaml.cs) — 29 wierszy; deklaracje: `StockLevelsView:22`
+- [LogistiQ/Views/Suppliers/AllSuppliersView.xaml](LogistiQ/Views/Suppliers/AllSuppliersView.xaml) — 21 wierszy
+- [LogistiQ/Views/Suppliers/AllSuppliersView.xaml.cs](LogistiQ/Views/Suppliers/AllSuppliersView.xaml.cs) — 29 wierszy; deklaracje: `AllSuppliersView:22`
+- [LogistiQ/Views/Suppliers/NewSupplierView.xaml](LogistiQ/Views/Suppliers/NewSupplierView.xaml) — 42 wierszy
+- [LogistiQ/Views/Suppliers/NewSupplierView.xaml.cs](LogistiQ/Views/Suppliers/NewSupplierView.xaml.cs) — 29 wierszy; deklaracje: `NewSupplierView:22`
+- [LogistiQ/Views/Warehouses/AllWarehousesView.xaml](LogistiQ/Views/Warehouses/AllWarehousesView.xaml) — 19 wierszy
+- [LogistiQ/Views/Warehouses/AllWarehousesView.xaml.cs](LogistiQ/Views/Warehouses/AllWarehousesView.xaml.cs) — 29 wierszy; deklaracje: `AllWarehousesView:22`
+- [LogistiQ/Views/Warehouses/NewWarehouseView.xaml](LogistiQ/Views/Warehouses/NewWarehouseView.xaml) — 33 wierszy
+- [LogistiQ/Views/Warehouses/NewWarehouseView.xaml.cs](LogistiQ/Views/Warehouses/NewWarehouseView.xaml.cs) — 29 wierszy; deklaracje: `NewWarehouseView:22`
+- [LogistiQ/app.config](LogistiQ/app.config)
+- [LogistiQ/packages.config](LogistiQ/packages.config)
+- [LogistiQ/script.sql](LogistiQ/script.sql) — 1045 wierszy
+- [README.md](README.md) — 58 wierszy
+- [Raporty/DeliveryReport.csv](Raporty/DeliveryReport.csv)
+- [Raporty/DeliveryReport1.csv](Raporty/DeliveryReport1.csv)
+- [Raporty/OrderReport.csv](Raporty/OrderReport.csv)
+- [Raporty/WarehouseOverviewReport.csv](Raporty/WarehouseOverviewReport.csv)
+- [Raporty/WarehouseOverviewReport1.csv](Raporty/WarehouseOverviewReport1.csv)
