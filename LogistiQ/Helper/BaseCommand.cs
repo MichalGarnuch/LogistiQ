@@ -1,58 +1,58 @@
-using System;                      // Import przestrzeni nazw, która zawiera podstawowe typy systemowe.
-using System.Windows.Input;        // Import przestrzeni nazw zawieraj¹cej interfejs ICommand potrzebny do implementacji komend w WPF.
+using System;                      // Import przestrzeni nazw, ktÃ³ra zawiera podstawowe typy systemowe.
+using System.Windows.Input;        // Import przestrzeni nazw zawierajÄ…cej interfejs ICommand potrzebny do implementacji komend w WPF.
 
-namespace LogistiQ.Helper        // Deklaracja przestrzeni nazw, w której znajduje siê klasa BaseCommand.
+namespace LogistiQ.Helper        // Deklaracja przestrzeni nazw, w ktÃ³rej znajduje siÄ™ klasa BaseCommand.
 {
     /// <summary>
-    /// Klasa `BaseCommand` implementuje interfejs `ICommand`, co umo¿liwia jej u¿ycie
-    /// do obs³ugi komend w WPF w architekturze MVVM.
-    /// 
-    /// Klasa ta pozwala powi¹zaæ logikê biznesow¹ (czyli akcje, które maj¹ zostaæ wykonane)
-    /// z elementami interfejsu u¿ytkownika (np. przyciskami). Dodatkowo umo¿liwia okreœlenie
-    /// warunku, kiedy dana komenda mo¿e byæ wykonana, co wp³ywa na aktywacjê lub dezaktywacjê
-    /// powi¹zanych elementów UI.
+    /// Klasa `BaseCommand` implementuje interfejs `ICommand`, co umoÅ¼liwia jej uÅ¼ycie
+    /// do obsÅ‚ugi komend w WPF w architekturze MVVM.
+    ///
+    /// Klasa ta pozwala powiÄ…zaÄ‡ logikÄ™ biznesowÄ… (czyli akcje, ktÃ³re majÄ… zostaÄ‡ wykonane)
+    /// z elementami interfejsu uÅ¼ytkownika (np. przyciskami). Dodatkowo umoÅ¼liwia okreÅ›lenie
+    /// warunku, kiedy dana komenda moÅ¼e byÄ‡ wykonana, co wpÅ‚ywa na aktywacjÄ™ lub dezaktywacjÄ™
+    /// powiÄ…zanych elementÃ³w UI.
     /// </summary>
     internal class BaseCommand : ICommand
     {
-        // Pole przechowuj¹ce delegata (metodê) do wykonania. 
-        // U¿ywamy typu Action, co oznacza, ¿e metoda nie przyjmuje parametrów i nie zwraca wartoœci.
+        // Pole przechowujÄ…ce delegata (metodÄ™) do wykonania.
+        // UÅ¼ywamy typu Action, co oznacza, Å¼e metoda nie przyjmuje parametrÃ³w i nie zwraca wartoÅ›ci.
         private readonly Action _command;
 
-        // Pole przechowuj¹ce delegata okreœlaj¹cego, czy komenda mo¿e zostaæ wykonana.
-        // Typ Func<bool> reprezentuje metodê, która zwraca wartoœæ bool (true/false).
-        // To pole jest opcjonalne i jeœli nie zostanie przypisane, komenda bêdzie zawsze wykonywalna.
+        // Pole przechowujÄ…ce delegata okreÅ›lajÄ…cego, czy komenda moÅ¼e zostaÄ‡ wykonana.
+        // Typ Func<bool> reprezentuje metodÄ™, ktÃ³ra zwraca wartoÅ›Ä‡ bool (true/false).
+        // To pole jest opcjonalne i jeÅ›li nie zostanie przypisane, komenda bÄ™dzie zawsze wykonywalna.
         private readonly Func<bool> _canExecute;
 
         /// <summary>
-        /// Konstruktor `BaseCommand` przyjmuje delegata reprezentuj¹cego metodê do wykonania
-        /// oraz opcjonalnie delegata okreœlaj¹cego warunek wykonania komendy.
+        /// Konstruktor `BaseCommand` przyjmuje delegata reprezentujÄ…cego metodÄ™ do wykonania
+        /// oraz opcjonalnie delegata okreÅ›lajÄ…cego warunek wykonania komendy.
         /// </summary>
         /// <param name="command">
-        /// Delegat (metoda) do wykonania po wywo³aniu komendy. 
-        /// Jest to wymagana funkcjonalnoœæ komendy.
+        /// Delegat (metoda) do wykonania po wywoÅ‚aniu komendy.
+        /// Jest to wymagana funkcjonalnoÅ›Ä‡ komendy.
         /// </param>
         /// <param name="canExecute">
-        /// Opcjonalny delegat, który zwraca wartoœæ true, jeœli komenda mo¿e byæ wykonana,
-        /// lub false w przeciwnym przypadku. Jeœli nie zostanie podany, komenda bêdzie zawsze wykonywalna.
+        /// Opcjonalny delegat, ktÃ³ry zwraca wartoÅ›Ä‡ true, jeÅ›li komenda moÅ¼e byÄ‡ wykonana,
+        /// lub false w przeciwnym przypadku. JeÅ›li nie zostanie podany, komenda bÄ™dzie zawsze wykonywalna.
         /// </param>
         public BaseCommand(Action command, Func<bool> canExecute = null)
         {
             // Sprawdzenie, czy przekazany delegat 'command' nie jest null.
-            // Jeœli jest null, rzucany jest wyj¹tek, aby unikn¹æ póŸniejszych b³êdów wykonania.
+            // JeÅ›li jest null, rzucany jest wyjÄ…tek, aby uniknÄ…Ä‡ pÃ³Åºniejszych bÅ‚Ä™dÃ³w wykonania.
             if (command == null)
                 throw new ArgumentNullException("command");
 
-            // Przypisanie opcjonalnego delegata sprawdzaj¹cego mo¿liwoœæ wykonania komendy.
+            // Przypisanie opcjonalnego delegata sprawdzajÄ…cego moÅ¼liwoÅ›Ä‡ wykonania komendy.
             _canExecute = canExecute;
-            // Przypisanie delegata reprezentuj¹cego metodê, która zostanie wykonana.
+            // Przypisanie delegata reprezentujÄ…cego metodÄ™, ktÃ³ra zostanie wykonana.
             _command = command;
         }
 
         /// <summary>
-        /// Metoda wykonuj¹ca akcjê przypisan¹ do komendy.
-        /// 
-        /// Jest wywo³ywana, gdy u¿ytkownik aktywuje komendê (np. klikaj¹c przycisk powi¹zany z t¹ komend¹).
-        /// Metoda ta wywo³uje delegata `_command`, który zosta³ przekazany przy tworzeniu obiektu.
+        /// Metoda wykonujÄ…ca akcjÄ™ przypisanÄ… do komendy.
+        ///
+        /// Jest wywoÅ‚ywana, gdy uÅ¼ytkownik aktywuje komendÄ™ (np. klikajÄ…c przycisk powiÄ…zany z tÄ… komendÄ…).
+        /// Metoda ta wywoÅ‚uje delegata `_command`, ktÃ³ry zostaÅ‚ przekazany przy tworzeniu obiektu.
         /// </summary>
         /// <param name="parameter">
         /// Parametr przekazywany do metody. W tej implementacji parametr nie jest wykorzystywany,
@@ -60,45 +60,49 @@ namespace LogistiQ.Helper        // Deklaracja przestrzeni nazw, w której znajdu
         /// </param>
         public void Execute(object parameter)
         {
-            // Wywo³anie metody przekazanej jako delegat, realizuj¹cej logikê komendy.
-            _command();
+            // WywoÅ‚anie metody przekazanej jako delegat, realizujÄ…cej logikÄ™ komendy.
+            if (CanExecute(parameter)) _command();
         }
 
         /// <summary>
-        /// Metoda sprawdzaj¹ca, czy komenda mo¿e zostaæ wykonana.
-        /// 
-        /// Jeœli nie zosta³ podany delegat `_canExecute`, metoda domyœlnie zwraca true,
-        /// co oznacza, ¿e komenda jest zawsze dostêpna do wykonania.
-        /// Jeœli delegat zosta³ podany, metoda wywo³uje go, aby okreœliæ aktualny stan komendy.
+        /// Metoda sprawdzajÄ…ca, czy komenda moÅ¼e zostaÄ‡ wykonana.
+        ///
+        /// JeÅ›li nie zostaÅ‚ podany delegat `_canExecute`, metoda domyÅ›lnie zwraca true,
+        /// co oznacza, Å¼e komenda jest zawsze dostÄ™pna do wykonania.
+        /// JeÅ›li delegat zostaÅ‚ podany, metoda wywoÅ‚uje go, aby okreÅ›liÄ‡ aktualny stan komendy.
         /// </summary>
         /// <param name="parameter">
         /// Parametr przekazywany do metody. W tej implementacji nie jest wykorzystywany,
         /// ale jest wymagany przez interfejs ICommand.
         /// </param>
         /// <returns>
-        /// Zwraca true, jeœli komenda mo¿e byæ wykonana, lub false, jeœli nie mo¿e.
+        /// Zwraca true, jeÅ›li komenda moÅ¼e byÄ‡ wykonana, lub false, jeÅ›li nie moÅ¼e.
         /// </returns>
         public bool CanExecute(object parameter)
         {
-            // Jeœli delegat sprawdzaj¹cy mo¿liwoœæ wykonania nie zosta³ okreœlony,
-            // zak³adamy, ¿e komenda zawsze mo¿e zostaæ wykonana.
+            // JeÅ›li delegat sprawdzajÄ…cy moÅ¼liwoÅ›Ä‡ wykonania nie zostaÅ‚ okreÅ›lony,
+            // zakÅ‚adamy, Å¼e komenda zawsze moÅ¼e zostaÄ‡ wykonana.
             if (_canExecute == null)
                 return true;
 
-            // W przeciwnym wypadku wywo³ujemy delegata, który zwraca informacjê o tym, czy komenda mo¿e byæ wykonana.
+            // W przeciwnym wypadku wywoÅ‚ujemy delegata, ktÃ³ry zwraca informacjÄ™ o tym, czy komenda moÅ¼e byÄ‡ wykonana.
             return _canExecute();
         }
 
         /// <summary>
-        /// Zdarzenie, które powinno byæ wywo³ane, gdy zmienia siê mo¿liwoœæ wykonania komendy.
-        /// 
-        /// W WPF, interfejs u¿ytkownika subskrybuje to zdarzenie, aby automatycznie odœwie¿aæ
-        /// stan przycisków lub innych elementów steruj¹cych zwi¹zanych z komend¹.
-        /// 
-        /// UWAGA: W tej implementacji zdarzenie nie jest wywo³ywane automatycznie.
-        /// Jeœli chcemy dynamicznie aktualizowaæ stan elementów UI, musimy rêcznie wywo³aæ:
+        /// Zdarzenie, ktÃ³re powinno byÄ‡ wywoÅ‚ane, gdy zmienia siÄ™ moÅ¼liwoÅ›Ä‡ wykonania komendy.
+        ///
+        /// W WPF, interfejs uÅ¼ytkownika subskrybuje to zdarzenie, aby automatycznie odÅ›wieÅ¼aÄ‡
+        /// stan przyciskÃ³w lub innych elementÃ³w sterujÄ…cych zwiÄ…zanych z komendÄ….
+        ///
+        /// Zdarzenie jest przekazywane z CommandManager.RequerySuggested.
+        /// Po zmianie stanu poza cyklem wejÅ›cia WPF moÅ¼na poprosiÄ‡ o ponownÄ… ocenÄ™:
         /// CommandManager.InvalidateRequerySuggested();
         /// </summary>
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
     }
 }

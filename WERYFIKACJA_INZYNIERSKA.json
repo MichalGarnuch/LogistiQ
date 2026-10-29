@@ -1,0 +1,19 @@
+{
+  "repository": "LogistiQ",
+  "branch": "wersja-inzynierska-2026",
+  "base_ref": "master",
+  "base_commit": "bc8faebc1798348961675a118e7f089649f8b50c",
+  "date": "2026-10-29",
+  "checks": [
+    {
+      "command_or_scope": "Przegląd ścieżek Execute/CanExecute i symetrii zdarzeń",
+      "result": "WYKONANY: zmiana źródła i komentarzy"
+    },
+    {
+      "command_or_scope": "Build i test WPF na Windows/.NET Framework 4.8",
+      "result": "NIEWYKONANY: brak natywnego środowiska"
+    }
+  ],
+  "limitations": "Nie ma wykonanego testu runtime WPF. Wersja nie rozwiązuje asynchronicznego wykonywania komend ani autoryzacji operacji w usługach; wymaga weryfikacji na Windows przed użyciem.",
+  "production_deployment_performed": false
+}
